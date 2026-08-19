@@ -6,6 +6,8 @@
     <title>Plugins | FRJ Pro Audio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Supabase JS Client v2 -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -35,7 +37,7 @@
             color: #e2e8f0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        /* Fundo de Estúdio Top de Mixagem/Mastering (SSL/Neve Console) */
+        /* Fundo de estúdio de alta fidelidade */
         .bg-studio-overlay {
             background-image: 
                 linear-gradient(to bottom, rgba(7, 8, 9, 0.92) 0%, rgba(7, 8, 9, 0.85) 50%, rgba(7, 8, 9, 0.98) 100%),
@@ -52,17 +54,39 @@
 </head>
 <body class="antialiased selection:bg-white selection:text-black min-h-screen flex flex-col justify-between bg-studio-overlay">
 
-    <!-- Header Apenas com o Logo -->
-    <header class="border-b border-spl-border bg-spl-bg/95 sticky top-0 z-50 backdrop-blur-md">
+    <!-- Header com Logo e Botões de Conta -->
+    <header class="border-b border-spl-border bg-spl-bg/95 sticky top-0 z-40 backdrop-blur-md">
         <div class="max-w-6xl mx-auto px-6 h-28 flex items-center justify-between">
+            <!-- Logo Isolado -->
             <a href="#" class="flex items-center group">
-                <!-- Imagem do Logo Isolada (h-20 w-20) -->
                 <div class="h-20 w-20 flex items-center justify-center p-1">
                     <img src="logo%20ok.png" alt="Logo" class="h-full w-full object-contain logo-white-clean transition-transform duration-300 group-hover:scale-105" onerror="this.src='logo ok.png';">
                 </div>
             </a>
-            <div class="text-xs uppercase tracking-widest text-spl-textMuted font-mono">
-                VST3 • AU • 64-BIT
+            
+            <!-- Ações do Cabeçalho -->
+            <div class="flex items-center space-x-6">
+                <div class="text-xs uppercase tracking-widest text-spl-textMuted font-mono hidden md:block">
+                    VST3 • AU • 64-BIT
+                </div>
+
+                <!-- Botões para Usuário Deslogado -->
+                <div id="auth-logged-out" class="flex items-center space-x-3">
+                    <button onclick="openModal('login')" class="px-4 py-2 border border-spl-border hover:border-white/40 text-xs font-mono uppercase tracking-wider text-gray-300 rounded transition-all">
+                        Entrar
+                    </button>
+                    <button onclick="openModal('signup')" class="px-4 py-2 bg-white hover:bg-gray-200 text-black text-xs font-mono font-semibold uppercase tracking-wider rounded transition-all shadow-md">
+                        Criar Conta
+                    </button>
+                </div>
+
+                <!-- Painel para Usuário Logado -->
+                <div id="auth-logged-in" class="hidden items-center space-x-4 font-mono text-xs">
+                    <span id="user-email-display" class="text-gray-300"></span>
+                    <button onclick="handleLogout()" class="text-red-400 hover:text-red-300 uppercase tracking-wider underline">
+                        Sair
+                    </button>
+                </div>
             </div>
         </div>
     </header>
@@ -88,7 +112,7 @@
             <!-- Card 1: Strip Pro -->
             <div class="bg-spl-card backdrop-blur-xl border border-spl-border rounded-2xl overflow-hidden flex flex-col justify-between shadow-spl-card hover:shadow-spl-card-hover hover:border-spl-borderHover hover:bg-spl-cardHover transition-all duration-300 group">
                 <div class="p-8">
-                    <!-- Contêiner do Print do Plugin -->
+                    <!-- Contêiner da Imagem -->
                     <div class="w-full h-72 sm:h-80 bg-black/70 rounded-xl border border-white/5 flex items-center justify-center mb-6 overflow-hidden p-4 shadow-inner">
                         <img src="strip-pro.png" alt="Strip Pro" class="w-full h-full object-contain filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-300" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-xs font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-sm text-white font-mono\'>strip-pro.png</span></div>'">
                     </div>
@@ -104,16 +128,16 @@
 
                 <div class="p-8 pt-0 mt-2 border-t border-white/5 flex items-center justify-between">
                     <span class="text-xs font-mono text-spl-textMuted">VST3 / AU • 64-bit</span>
-                    <a href="#" class="px-6 py-2.5 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded-lg uppercase tracking-wider transition-all shadow-md hover:shadow-lg active:scale-95">
+                    <button onclick="handleProtectedDownload('Strip_Pro')" class="px-6 py-2.5 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded-lg uppercase tracking-wider transition-all shadow-md active:scale-95">
                         Download
-                    </a>
+                    </button>
                 </div>
             </div>
 
             <!-- Card 2: Energy -->
             <div class="bg-spl-card backdrop-blur-xl border border-spl-border rounded-2xl overflow-hidden flex flex-col justify-between shadow-spl-card hover:shadow-spl-card-hover hover:border-spl-borderHover hover:bg-spl-cardHover transition-all duration-300 group">
                 <div class="p-8">
-                    <!-- Contêiner do Print do Plugin -->
+                    <!-- Contêiner da Imagem -->
                     <div class="w-full h-72 sm:h-80 bg-black/70 rounded-xl border border-white/5 flex items-center justify-center mb-6 overflow-hidden p-4 shadow-inner">
                         <img src="energy.png" alt="Energy" class="w-full h-full object-contain filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-300" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-xs font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-sm text-white font-mono\'>energy.png</span></div>'">
                     </div>
@@ -129,15 +153,15 @@
 
                 <div class="p-8 pt-0 mt-2 border-t border-white/5 flex items-center justify-between">
                     <span class="text-xs font-mono text-spl-textMuted">VST3 / AU • 64-bit</span>
-                    <a href="#" class="px-6 py-2.5 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded-lg uppercase tracking-wider transition-all shadow-md hover:shadow-lg active:scale-95">
+                    <button onclick="handleProtectedDownload('Energy')" class="px-6 py-2.5 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded-lg uppercase tracking-wider transition-all shadow-md active:scale-95">
                         Download
-                    </a>
+                    </button>
                 </div>
             </div>
 
         </div>
 
-        <!-- Rodapé de Especificações -->
+        <!-- Rodapé de Especificações Técnicas -->
         <div class="mt-16 p-6 rounded-xl bg-spl-card/60 backdrop-blur-md border border-spl-border grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-spl-textMuted font-mono">
             <div>
                 <span class="text-white font-semibold block mb-1 uppercase tracking-wider">SISTEMA</span>
@@ -154,7 +178,7 @@
         </div>
     </main>
 
-    <!-- Footer Apenas com o Logo -->
+    <!-- Footer com Logo Centralizado -->
     <footer class="border-t border-spl-border py-12 text-center text-xs text-spl-textMuted font-mono bg-spl-bg/95 backdrop-blur-md flex flex-col items-center justify-center gap-4">
         <div class="h-20 w-20 flex items-center justify-center">
             <img src="logo%20ok.png" alt="Logo" class="h-full w-full object-contain logo-white-clean opacity-90 transition-transform duration-300 hover:scale-105" onerror="this.src='logo ok.png';">
@@ -162,5 +186,161 @@
         <span class="text-[11px] text-gray-500">© 2026. TODOS OS DIREITOS RESERVADOS.</span>
     </footer>
 
+    <!-- MODAL DE LOGIN / CADASTRO -->
+    <div id="auth-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-spl-card border border-spl-border w-full max-w-md rounded-2xl p-8 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl font-mono leading-none">&times;</button>
+            
+            <!-- Abas -->
+            <div class="flex border-b border-spl-border mb-6">
+                <button id="tab-login" onclick="switchAuthTab('login')" class="pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold">
+                    Entrar
+                </button>
+                <button id="tab-signup" onclick="switchAuthTab('signup')" class="pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-transparent text-gray-500 hover:text-gray-300">
+                    Criar Conta
+                </button>
+            </div>
+
+            <!-- Caixa de Mensagem / Alerta -->
+            <div id="auth-message" class="hidden mb-4 p-3 rounded text-xs font-mono leading-relaxed"></div>
+
+            <!-- Formulário de Autenticação -->
+            <form id="auth-form" onsubmit="handleAuth(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-mono uppercase text-gray-400 mb-1">E-mail</label>
+                    <input type="email" id="auth-email" required class="w-full bg-black/60 border border-spl-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-white transition-colors" placeholder="seuemail@exemplo.com">
+                </div>
+                <div>
+                    <label class="block text-xs font-mono uppercase text-gray-400 mb-1">Senha</label>
+                    <input type="password" id="auth-password" required minlength="6" class="w-full bg-black/60 border border-spl-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-white transition-colors" placeholder="••••••••">
+                </div>
+
+                <button type="submit" id="auth-submit-btn" class="w-full py-3 bg-white hover:bg-gray-200 text-black font-semibold text-xs uppercase tracking-wider rounded-lg transition-all mt-2">
+                    Entrar
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script de Integração com o Supabase -->
+    <script>
+        // =================================================================
+        // CREDENCIAIS DO SUPABASE (Configuradas):
+        // =================================================================
+        const SUPABASE_URL = 'https://xeraxrhmzuxknjqxnlwz.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_u8d0bA9UBxw-hHmEsoKM9A_hh5nTYG6';
+
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        let currentAuthMode = 'login';
+
+        function openModal(mode = 'login') {
+            switchAuthTab(mode);
+            document.getElementById('auth-modal').classList.remove('hidden');
+            document.getElementById('auth-modal').classList.add('flex');
+            clearMessage();
+        }
+
+        function closeModal() {
+            document.getElementById('auth-modal').classList.add('hidden');
+            document.getElementById('auth-modal').classList.remove('flex');
+        }
+
+        function switchAuthTab(mode) {
+            currentAuthMode = mode;
+            const tabLogin = document.getElementById('tab-login');
+            const tabSignup = document.getElementById('tab-signup');
+            const submitBtn = document.getElementById('auth-submit-btn');
+
+            if (mode === 'login') {
+                tabLogin.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold';
+                tabSignup.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-transparent text-gray-500 hover:text-gray-300';
+                submitBtn.innerText = 'Entrar';
+            } else {
+                tabSignup.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold';
+                tabLogin.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-transparent text-gray-500 hover:text-gray-300';
+                submitBtn.innerText = 'Criar Conta & Receber Confirmação';
+            }
+            clearMessage();
+        }
+
+        function showMessage(text, isError = false) {
+            const msgBox = document.getElementById('auth-message');
+            msgBox.innerText = text;
+            msgBox.className = `mb-4 p-3 rounded text-xs font-mono leading-relaxed ${isError ? 'bg-red-950/80 text-red-300 border border-red-800' : 'bg-green-950/80 text-green-300 border border-green-800'}`;
+            msgBox.classList.remove('hidden');
+        }
+
+        function clearMessage() {
+            document.getElementById('auth-message').classList.add('hidden');
+        }
+
+        async function handleAuth(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('auth-email').value;
+            const password = document.getElementById('auth-password').value;
+            const submitBtn = document.getElementById('auth-submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Processando...';
+
+            try {
+                if (currentAuthMode === 'signup') {
+                    const { data, error } = await supabase.auth.signUp({ email, password });
+                    if (error) throw error;
+                    showMessage('Conta criada com sucesso! Verifique seu e-mail para confirmar seu cadastro.');
+                } else {
+                    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+                    if (error) throw error;
+                    closeModal();
+                    checkSession();
+                }
+            } catch (err) {
+                showMessage(err.message, true);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = currentAuthMode === 'login' ? 'Entrar' : 'Criar Conta & Receber Confirmação';
+            }
+        }
+
+        async function handleLogout() {
+            await supabase.auth.signOut();
+            checkSession();
+        }
+
+        async function checkSession() {
+            const { data: { session } } = await supabase.auth.getSession();
+            const loggedOutDiv = document.getElementById('auth-logged-out');
+            const loggedInDiv = document.getElementById('auth-logged-in');
+            const userDisplay = document.getElementById('user-email-display');
+
+            if (session) {
+                loggedOutDiv.classList.add('hidden');
+                loggedInDiv.classList.remove('hidden');
+                loggedInDiv.classList.add('flex');
+                userDisplay.innerText = session.user.email;
+            } else {
+                loggedOutDiv.classList.remove('hidden');
+                loggedInDiv.classList.add('hidden');
+                loggedInDiv.classList.remove('flex');
+            }
+        }
+
+        function handleProtectedDownload(pluginName) {
+            supabase.auth.getSession().then(({ data: { session } }) => {
+                if (!session) {
+                    openModal('login');
+                    showMessage('Crie uma conta gratuita ou faça login para baixar os plugins.', true);
+                } else {
+                    alert(`Usuário autenticado! Iniciando download do instalador: ${pluginName}`);
+                }
+            });
+        }
+
+        // Verifica a sessão ao carregar a página
+        window.addEventListener('load', () => {
+            checkSession();
+        });
+    </script>
 </body>
 </html>
