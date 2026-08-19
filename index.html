@@ -16,10 +16,15 @@
                         brand: {
                             gold: '#f59e0b',
                             cyan: '#06b6d4',
+                            teal: '#14b8a6',
                             dark: '#0a0d14',
                             card: '#111827',
-                            border: '#1f2937'
+                            border: '#1f2937',
+                            metal: '#d1d5db' // Cor base para o logo/textura de metal
                         }
+                    },
+                    backgroundImage: {
+                        'metal-texture': 'url(https://www.transparenttextures.com/patterns/brushed-alum.png)' // Adiciona uma textura leve de metal escovado
                     }
                 }
             }
@@ -27,10 +32,20 @@
     </script>
     <style>
         .glow-cyan {
-            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.3);
+            box-shadow: 0 0 35px -5px rgba(6, 182, 212, 0.3);
         }
         .glow-gold {
-            box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.2);
+            box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.2);
+        }
+        .text-metal {
+            color: transparent;
+            background: linear-gradient(135deg, #e5e7eb 0%, #9ca3af 50%, #e5e7eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+        /* Efeito de brilho de neon sutil atrás do logo no header */
+        .header-logo-glow {
+            filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.5));
         }
     </style>
 </head>
@@ -39,12 +54,41 @@
     <!-- Header / Navbar -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-brand-dark/80 border-b border-brand-border">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-gold flex items-center justify-center text-black font-extrabold text-xl shadow-lg">
-                    F
-                </div>
-                <span class="text-2xl font-bold tracking-wider text-white">FRJ <span class="text-brand-cyan">PRO AUDIO</span></span>
-            </div>
+            <a href="#" class="flex items-center space-x-3 group header-logo-glow">
+                <!-- SVG Vetorizado do Logo FRJ (Nítido em qualquer tamanho) -->
+                <svg width="48" height="48" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <!-- Gradiente de metal escovado -->
+                        <linearGradient id="metal-gradient" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#f3f4f6"/> <!-- metal claro -->
+                            <stop offset="0.3" stop-color="#d1d5db"/> <!-- metal médio -->
+                            <stop offset="0.5" stop-color="#9ca3af"/> <!-- metal escuro -->
+                            <stop offset="0.7" stop-color="#d1d5db"/>
+                            <stop offset="1" stop-color="#f3f4f6"/>
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Barras de Equalizador (Vetorizadas a partir do original) -->
+                    <rect x="5" y="40" width="4" height="20" rx="2" fill="url(#metal-gradient)"/>
+                    <rect x="13" y="30" width="4" height="40" rx="2" fill="url(#metal-gradient)"/>
+                    <rect x="21" y="25" width="4" height="50" rx="2" fill="url(#metal-gradient)"/>
+                    <rect x="29" y="15" width="4" height="70" rx="2" fill="url(#metal-gradient)"/>
+                    
+                    <rect x="37" y="10" width="4" height="80" rx="2" fill="url(#metal-gradient)"/> <!-- Central Alto -->
+                    
+                    <rect x="45" y="15" width="4" height="70" rx="2" fill="url(#metal-gradient)"/>
+                    <rect x="53" y="25" width="4" height="50" rx="2" fill="url(#metal-gradient)"/>
+                    <rect x="61" y="30" width="4" height="40" rx="2" fill="url(#metal-gradient)"/>
+                    <rect x="69" y="40" width="4" height="20" rx="2" fill="url(#metal-gradient)"/>
+                    <rect x="77" y="45" width="4" height="10" rx="2" fill="url(#metal-gradient)"/> <!-- Central Baixo -->
+                    <rect x="85" y="30" width="4" height="40" rx="2" fill="url(#metal-gradient)"/>
+                    <rect x="93" y="40" width="4" height="20" rx="2" fill="url(#metal-gradient)"/>
+
+                    <!-- Texto FRJ Central (Fonte Estilo Técnico) -->
+                    <text x="50" y="55" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="28" fill="url(#metal-gradient)">FRJ</text>
+                </svg>
+                <span class="text-2xl font-bold tracking-wider text-white hidden sm:block">FRJ <span class="text-brand-cyan">PRO AUDIO</span></span>
+            </a>
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
                 <a href="#plugins" class="hover:text-brand-cyan transition-colors">Plugins</a>
                 <a href="#demo" class="hover:text-brand-cyan transition-colors">Audio Demo</a>
@@ -80,25 +124,34 @@
 
     <!-- Plugins Grid -->
     <section id="plugins" class="py-24 max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16 relative">
             <h2 class="text-3xl font-bold text-white mb-4">Catálogo de Ferramentas</h2>
             <p class="text-gray-400">Desenvolvidos com algoritmos limpos para máxima estabilidade e zero latência perceptível.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Card Plugin 1 -->
-            <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand-cyan/50 transition-all glow-cyan group">
-                <div>
-                    <div class="h-48 rounded-xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 flex items-center justify-center mb-6 overflow-hidden relative">
+            <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand-cyan/50 transition-all glow-cyan group relative overflow-hidden">
+                <div class="absolute inset-0 bg-metal-texture opacity-5 group-hover:opacity-10 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div class="h-48 rounded-xl bg-gray-950 border border-gray-800 flex items-center justify-center mb-6 overflow-hidden relative group">
                         <i data-lucide="sliders" class="w-16 h-16 text-brand-cyan group-hover:scale-110 transition-transform duration-300"></i>
                         <span class="absolute top-3 right-3 bg-brand-cyan/20 text-brand-cyan text-xs px-2.5 py-1 rounded-full font-mono">VST3 / AU</span>
+                        <!-- Detalhe do logo FRJ no card -->
+                        <div class="absolute bottom-2 left-2 opacity-30 w-8">
+                            <svg width="24" height="24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="50" y="5" width="4" height="20" rx="2" fill="#d1d5db"/>
+                                <rect x="50" y="35" width="4" height="20" rx="2" fill="#d1d5db"/>
+                                <rect x="50" y="65" width="4" height="20" rx="2" fill="#d1d5db"/>
+                            </svg>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">FRJ Dynamic Punch</h3>
+                    <h3 class="text-xl font-bold text-metal mb-2">FRJ Dynamic Punch</h3>
                     <p class="text-gray-400 text-sm mb-4 leading-relaxed">
                         Compressor e shaper de transientes desenhado para colar o baixo e dar impacto cirúrgico na bateria e percussões.
                     </p>
                 </div>
-                <div>
+                <div class="relative z-10">
                     <div class="flex items-center space-x-2 text-xs text-gray-500 mb-4">
                         <span>Win 64-bit</span> • <span>macOS Universal</span>
                     </div>
@@ -109,18 +162,27 @@
             </div>
 
             <!-- Card Plugin 2 -->
-            <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold/50 transition-all glow-gold group">
-                <div>
-                    <div class="h-48 rounded-xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 flex items-center justify-center mb-6 overflow-hidden relative">
+            <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold/50 transition-all glow-gold group relative overflow-hidden">
+                <div class="absolute inset-0 bg-metal-texture opacity-5 group-hover:opacity-10 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div class="h-48 rounded-xl bg-gray-950 border border-gray-800 flex items-center justify-center mb-6 overflow-hidden relative group">
                         <i data-lucide="activity" class="w-16 h-16 text-brand-gold group-hover:scale-110 transition-transform duration-300"></i>
                         <span class="absolute top-3 right-3 bg-brand-gold/20 text-brand-gold text-xs px-2.5 py-1 rounded-full font-mono">VST3 / AU</span>
+                        <!-- Detalhe do logo FRJ no card -->
+                        <div class="absolute bottom-2 left-2 opacity-30 w-8">
+                            <svg width="24" height="24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="50" y="5" width="4" height="20" rx="2" fill="#f59e0b"/>
+                                <rect x="50" y="35" width="4" height="20" rx="2" fill="#f59e0b"/>
+                                <rect x="50" y="65" width="4" height="20" rx="2" fill="#f59e0b"/>
+                            </svg>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">FRJ Warmth Saturation</h3>
+                    <h3 class="text-xl font-bold text-metal mb-2">FRJ Warmth Saturation</h3>
                     <p class="text-gray-400 text-sm mb-4 leading-relaxed">
                         Saturação harmônica valvulada para aquecer vocais, violões e instrumentos acústicos sem perder a dinâmica natural.
                     </p>
                 </div>
-                <div>
+                <div class="relative z-10">
                     <div class="flex items-center space-x-2 text-xs text-gray-500 mb-4">
                         <span>Win 64-bit</span> • <span>macOS Universal</span>
                     </div>
@@ -131,18 +193,27 @@
             </div>
 
             <!-- Card Plugin 3 -->
-            <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand-cyan/50 transition-all glow-cyan group">
-                <div>
-                    <div class="h-48 rounded-xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 flex items-center justify-center mb-6 overflow-hidden relative">
+            <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand-cyan/50 transition-all glow-cyan group relative overflow-hidden">
+                <div class="absolute inset-0 bg-metal-texture opacity-5 group-hover:opacity-10 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div class="h-48 rounded-xl bg-gray-950 border border-gray-800 flex items-center justify-center mb-6 overflow-hidden relative group">
                         <i data-lucide="disc" class="w-16 h-16 text-brand-cyan group-hover:scale-110 transition-transform duration-300"></i>
                         <span class="absolute top-3 right-3 bg-brand-cyan/20 text-brand-cyan text-xs px-2.5 py-1 rounded-full font-mono">VST3 / AU</span>
+                        <!-- Detalhe do logo FRJ no card -->
+                        <div class="absolute bottom-2 left-2 opacity-30 w-8">
+                            <svg width="24" height="24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="50" y="5" width="4" height="20" rx="2" fill="#d1d5db"/>
+                                <rect x="50" y="35" width="4" height="20" rx="2" fill="#d1d5db"/>
+                                <rect x="50" y="65" width="4" height="20" rx="2" fill="#d1d5db"/>
+                            </svg>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">FRJ Master Air EQ</h3>
+                    <h3 class="text-xl font-bold text-metal mb-2">FRJ Master Air EQ</h3>
                     <p class="text-gray-400 text-sm mb-4 leading-relaxed">
                         Equalizador musical focado em adicionar brilho cristalino (Air Band) e peso nos graves no barramento de masterização.
                     </p>
                 </div>
-                <div>
+                <div class="relative z-10">
                     <div class="flex items-center space-x-2 text-xs text-gray-500 mb-4">
                         <span>Win 64-bit</span> • <span>macOS Universal</span>
                     </div>
@@ -155,12 +226,13 @@
     </section>
 
     <!-- A/B Audio Comparison Demo -->
-    <section id="demo" class="py-20 bg-gradient-to-b from-transparent via-gray-950 to-transparent border-t border-brand-border/50">
-        <div class="max-w-4xl mx-auto px-6 text-center">
+    <section id="demo" class="py-20 bg-gradient-to-b from-transparent via-gray-950 to-transparent border-t border-brand-border/50 relative overflow-hidden">
+        <div class="absolute inset-0 bg-metal-texture opacity-5"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
             <h2 class="text-3xl font-bold text-white mb-3">Teste A/B em Tempo Real</h2>
             <p class="text-gray-400 mb-8">Ouça a diferença do processamento nos timbres da FRJ Pro Audio.</p>
 
-            <div class="bg-brand-card border border-brand-border rounded-2xl p-8 max-w-xl mx-auto shadow-2xl">
+            <div class="bg-brand-card border border-brand-border rounded-2xl p-8 max-w-xl mx-auto shadow-2xl relative">
                 <div class="flex items-center justify-between mb-6">
                     <span class="text-sm font-semibold text-gray-300">Demonstração: Mix Bus Processing</span>
                     <span id="audio-status" class="text-xs font-mono px-2 py-1 bg-gray-800 text-brand-cyan rounded">PROCESSADO (WET)</span>
@@ -177,6 +249,7 @@
 
                 <div class="bg-gray-900 rounded-xl p-4 flex items-center justify-center border border-gray-800">
                     <audio id="demo-player" controls class="w-full">
+                        <!-- LINK DE ÁUDIO DE EXEMPLO (SUBSTITUA PELO SEU MP3 DEMO) -->
                         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
                         Seu navegador não suporta reprodução de áudio.
                     </audio>
@@ -187,68 +260,78 @@
     </section>
 
     <!-- Compatibilidade & Requisitos -->
-    <section id="specs" class="py-20 max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-brand-card border border-brand-border rounded-2xl p-8">
-                <div class="flex items-center space-x-3 mb-6">
-                    <i data-lucide="cpu" class="w-6 h-6 text-brand-cyan"></i>
-                    <h3 class="text-xl font-bold text-white">Requisitos de Sistema</h3>
+    <section id="specs" class="py-20 max-w-6xl mx-auto px-6 relative">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+            <div class="bg-brand-card border border-brand-border rounded-2xl p-8 overflow-hidden group">
+                <div class="absolute inset-0 bg-metal-texture opacity-5 group-hover:opacity-10 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <i data-lucide="cpu" class="w-6 h-6 text-brand-cyan"></i>
+                        <h3 class="text-xl font-bold text-white">Requisitos de Sistema</h3>
+                    </div>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-center space-x-2">
+                            <span class="text-brand-cyan">✔</span>
+                            <span><strong>Windows:</strong> Windows 10 ou 11 (64-bit)</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="text-brand-cyan">✔</span>
+                            <span><strong>macOS:</strong> macOS 11+ (Intel & Apple Silicon Native)</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="text-brand-cyan">✔</span>
+                            <span><strong>Formatos:</strong> VST3, AU (Audio Units)</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="text-brand-cyan">✔</span>
+                            <span><strong>DAWs Suportadas:</strong> Reaper, FL Studio, Ableton Live, Studio One, Logic Pro, Cubase.</span>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="space-y-3 text-sm text-gray-400">
-                    <li class="flex items-center space-x-2">
-                        <span class="text-brand-cyan">✔</span>
-                        <span><strong>Windows:</strong> Windows 10 ou 11 (64-bit)</span>
-                    </li>
-                    <li class="flex items-center space-x-2">
-                        <span class="text-brand-cyan">✔</span>
-                        <span><strong>macOS:</strong> macOS 11+ (Intel & Apple Silicon Native)</span>
-                    </li>
-                    <li class="flex items-center space-x-2">
-                        <span class="text-brand-cyan">✔</span>
-                        <span><strong>Formatos:</strong> VST3, AU (Audio Units)</span>
-                    </li>
-                    <li class="flex items-center space-x-2">
-                        <span class="text-brand-cyan">✔</span>
-                        <span><strong>DAWs Suportadas:</strong> Reaper, FL Studio, Ableton Live, Studio One, Pro Tools, Logic Pro, Cubase.</span>
-                    </li>
-                </ul>
             </div>
 
-            <div id="downloads" class="bg-brand-card border border-brand-border rounded-2xl p-8 flex flex-col justify-between">
-                <div>
-                    <div class="flex items-center space-x-3 mb-6">
-                        <i data-lucide="download" class="w-6 h-6 text-brand-gold"></i>
-                        <h3 class="text-xl font-bold text-white">Download Direto</h3>
+            <div id="downloads" class="bg-brand-card border border-brand-border rounded-2xl p-8 flex flex-col justify-between overflow-hidden group">
+                <div class="absolute inset-0 bg-metal-texture opacity-5 group-hover:opacity-10 transition-opacity"></div>
+                <div class="relative z-10">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-6">
+                            <i data-lucide="download" class="w-6 h-6 text-brand-gold"></i>
+                            <h3 class="text-xl font-bold text-white">Download Direto</h3>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-6">
+                            Baixe o instalador universal contendo todos os plugins da suíte FRJ Pro Audio de uma só vez.
+                        </p>
                     </div>
-                    <p class="text-sm text-gray-400 mb-6">
-                        Baixe o instalador universal contendo todos os plugins da suíte FRJ Pro Audio de uma só vez.
-                    </p>
-                </div>
-                <div class="space-y-3">
-                    <a href="#" class="flex items-center justify-between p-3.5 bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl transition-all group">
-                        <div class="flex items-center space-x-3">
-                            <i data-lucide="folder-archive" class="w-5 h-5 text-brand-cyan"></i>
-                            <span class="text-sm font-semibold text-white">FRJ_Suite_Windows_x64.zip</span>
-                        </div>
-                        <span class="text-xs bg-brand-cyan text-black font-bold px-2 py-1 rounded">Baixar</span>
-                    </a>
-                    <a href="#" class="flex items-center justify-between p-3.5 bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl transition-all group">
-                        <div class="flex items-center space-x-3">
-                            <i data-lucide="folder-archive" class="w-5 h-5 text-brand-gold"></i>
-                            <span class="text-sm font-semibold text-white">FRJ_Suite_macOS_Universal.pkg</span>
-                        </div>
-                        <span class="text-xs bg-brand-gold text-black font-bold px-2 py-1 rounded">Baixar</span>
-                    </a>
+                    <div class="space-y-3">
+                        <a href="#" class="flex items-center justify-between p-3.5 bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl transition-all group">
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="folder-archive" class="w-5 h-5 text-brand-cyan"></i>
+                                <span class="text-sm font-semibold text-white">FRJ_Suite_Windows_x64.zip</span>
+                            </div>
+                            <span class="text-xs bg-brand-cyan text-black font-bold px-2 py-1 rounded">Baixar</span>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-3.5 bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl transition-all group">
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="folder-archive" class="w-5 h-5 text-brand-gold"></i>
+                                <span class="text-sm font-semibold text-white">FRJ_Suite_macOS_Universal.pkg</span>
+                            </div>
+                            <span class="text-xs bg-brand-gold text-black font-bold px-2 py-1 rounded">Baixar</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-brand-border py-12 bg-black">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center space-x-2">
-                <span class="text-lg font-bold text-white">FRJ <span class="text-brand-cyan">PRO AUDIO</span></span>
+    <footer class="border-t border-brand-border py-12 bg-black relative">
+        <div class="absolute inset-0 bg-metal-texture opacity-5"></div>
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+            <div class="flex items-center space-x-3">
+                <!-- SVG Vetorizado Reduzido para o Footer -->
+                <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <text x="50" y="55" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="36" fill="#9ca3af">FRJ</text>
+                </svg>
                 <span class="text-xs text-gray-500">© 2026. Todos os direitos reservados.</span>
             </div>
             <div class="flex space-x-6 text-sm text-gray-400">
