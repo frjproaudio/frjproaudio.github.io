@@ -6,8 +6,8 @@
     <title>Plugins | FRJ Pro Audio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Supabase JS Client v2 -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Supabase JS Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -46,7 +46,7 @@
             background-position: center center;
             background-attachment: fixed;
         }
-        /* Destaque máximo para o logo branco: brilho, nitidez e presença */
+        /* Destaque para o logo branco */
         .logo-ultra-bright {
             filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.45));
         }
@@ -76,10 +76,10 @@
 
                 <!-- Botões para Usuário Deslogado -->
                 <div id="auth-logged-out" class="flex items-center space-x-3">
-                    <button onclick="openModal('login')" class="px-4 py-2 border border-spl-border hover:border-white/40 text-xs font-mono uppercase tracking-wider text-gray-300 rounded transition-all">
+                    <button type="button" onclick="openModal('login')" class="px-4 py-2 border border-spl-border hover:border-white/40 text-xs font-mono uppercase tracking-wider text-gray-300 rounded transition-all cursor-pointer">
                         Entrar
                     </button>
-                    <button onclick="openModal('signup')" class="px-4 py-2 bg-white hover:bg-gray-200 text-black text-xs font-mono font-semibold uppercase tracking-wider rounded transition-all shadow-md">
+                    <button type="button" onclick="openModal('signup')" class="px-4 py-2 bg-white hover:bg-gray-200 text-black text-xs font-mono font-semibold uppercase tracking-wider rounded transition-all shadow-md cursor-pointer">
                         Criar Conta
                     </button>
                 </div>
@@ -87,7 +87,7 @@
                 <!-- Painel para Usuário Logado -->
                 <div id="auth-logged-in" class="hidden items-center space-x-4 font-mono text-xs">
                     <span id="user-email-display" class="text-gray-300"></span>
-                    <button onclick="handleLogout()" class="text-red-400 hover:text-red-300 uppercase tracking-wider underline">
+                    <button type="button" onclick="handleLogout()" class="text-red-400 hover:text-red-300 uppercase tracking-wider underline cursor-pointer">
                         Sair
                     </button>
                 </div>
@@ -132,7 +132,7 @@
 
                 <div class="p-8 pt-0 mt-2 border-t border-white/5 flex items-center justify-between">
                     <span class="text-xs font-mono text-spl-textMuted">VST3 / AU • 64-bit</span>
-                    <button onclick="handleProtectedDownload('Strip_Pro')" class="px-6 py-2.5 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded-lg uppercase tracking-wider transition-all shadow-md active:scale-95">
+                    <button type="button" onclick="handleProtectedDownload('Strip_Pro')" class="px-6 py-2.5 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded-lg uppercase tracking-wider transition-all shadow-md active:scale-95 cursor-pointer">
                         Download
                     </button>
                 </div>
@@ -157,7 +157,7 @@
 
                 <div class="p-8 pt-0 mt-2 border-t border-white/5 flex items-center justify-between">
                     <span class="text-xs font-mono text-spl-textMuted">VST3 / AU • 64-bit</span>
-                    <button onclick="handleProtectedDownload('Energy')" class="px-6 py-2.5 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded-lg uppercase tracking-wider transition-all shadow-md active:scale-95">
+                    <button type="button" onclick="handleProtectedDownload('Energy')" class="px-6 py-2.5 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded-lg uppercase tracking-wider transition-all shadow-md active:scale-95 cursor-pointer">
                         Download
                     </button>
                 </div>
@@ -184,7 +184,6 @@
 
     <!-- Footer com Logo Grande Centralizado e Nome -->
     <footer class="border-t border-spl-border py-12 text-center text-xs text-spl-textMuted font-mono bg-spl-bg/95 backdrop-blur-md flex flex-col items-center justify-center gap-4">
-        <!-- Logo do Rodapé em Escala Ampliada (h-24 w-24) -->
         <div class="h-24 w-24 flex items-center justify-center">
             <img src="logo%20ok.png" alt="FRJ Pro Audio" class="h-full w-full object-contain logo-ultra-bright opacity-90 transition-transform duration-300 hover:scale-105" onerror="this.src='logo ok.png';">
         </div>
@@ -194,15 +193,15 @@
 
     <!-- MODAL DE LOGIN / CADASTRO -->
     <div id="auth-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="bg-spl-card border border-spl-border w-full max-w-md rounded-2xl p-8 shadow-2xl relative">
-            <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-xl font-mono leading-none">&times;</button>
+        <div class="bg-[#0f1114] border border-spl-border w-full max-w-md rounded-2xl p-8 shadow-2xl relative">
+            <button type="button" onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl font-mono leading-none cursor-pointer">&times;</button>
             
             <!-- Abas -->
             <div class="flex border-b border-spl-border mb-6">
-                <button id="tab-login" onclick="switchAuthTab('login')" class="pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold">
+                <button type="button" id="tab-login" onclick="switchAuthTab('login')" class="pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold cursor-pointer">
                     Entrar
                 </button>
-                <button id="tab-signup" onclick="switchAuthTab('signup')" class="pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-transparent text-gray-500 hover:text-gray-300">
+                <button type="button" id="tab-signup" onclick="switchAuthTab('signup')" class="pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-transparent text-gray-500 hover:text-gray-300 cursor-pointer">
                     Criar Conta
                 </button>
             </div>
@@ -221,7 +220,7 @@
                     <input type="password" id="auth-password" required minlength="6" class="w-full bg-black/60 border border-spl-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-white transition-colors" placeholder="••••••••">
                 </div>
 
-                <button type="submit" id="auth-submit-btn" class="w-full py-3 bg-white hover:bg-gray-200 text-black font-semibold text-xs uppercase tracking-wider rounded-lg transition-all mt-2">
+                <button type="submit" id="auth-submit-btn" class="w-full py-3 bg-white hover:bg-gray-200 text-black font-semibold text-xs uppercase tracking-wider rounded-lg transition-all mt-2 cursor-pointer">
                     Entrar
                 </button>
             </form>
@@ -230,26 +229,37 @@
 
     <!-- Script de Integração com o Supabase -->
     <script>
-        // =================================================================
-        // CREDENCIAIS DO SUPABASE (Configuradas):
-        // =================================================================
         const SUPABASE_URL = 'https://xeraxrhmzuxknjqxnlwz.supabase.co';
         const SUPABASE_ANON_KEY = 'sb_publishable_u8d0bA9UBxw-hHmEsoKM9A_hh5nTYG6';
 
-        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        let supabaseClient = null;
+
+        function getSupabase() {
+            if (!supabaseClient) {
+                if (window.supabase && typeof window.supabase.createClient === 'function') {
+                    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+                } else if (typeof createClient === 'function') {
+                    supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+                }
+            }
+            return supabaseClient;
+        }
 
         let currentAuthMode = 'login';
 
-        function openModal(mode = 'login') {
-            switchAuthTab(mode);
-            document.getElementById('auth-modal').classList.remove('hidden');
-            document.getElementById('auth-modal').classList.add('flex');
+        function openModal(mode) {
+            const m = mode || 'login';
+            switchAuthTab(m);
+            const modal = document.getElementById('auth-modal');
+            modal.style.display = 'flex';
+            modal.classList.remove('hidden');
             clearMessage();
         }
 
         function closeModal() {
-            document.getElementById('auth-modal').classList.add('hidden');
-            document.getElementById('auth-modal').classList.remove('flex');
+            const modal = document.getElementById('auth-modal');
+            modal.style.display = 'none';
+            modal.classList.add('hidden');
         }
 
         function switchAuthTab(mode) {
@@ -259,30 +269,38 @@
             const submitBtn = document.getElementById('auth-submit-btn');
 
             if (mode === 'login') {
-                tabLogin.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold';
-                tabSignup.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-transparent text-gray-500 hover:text-gray-300';
+                tabLogin.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold cursor-pointer';
+                tabSignup.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-transparent text-gray-500 hover:text-gray-300 cursor-pointer';
                 submitBtn.innerText = 'Entrar';
             } else {
-                tabSignup.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold';
-                tabLogin.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-transparent text-gray-500 hover:text-gray-300';
+                tabSignup.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold cursor-pointer';
+                tabLogin.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-transparent text-gray-500 hover:text-gray-300 cursor-pointer';
                 submitBtn.innerText = 'Criar Conta & Receber Confirmação';
             }
             clearMessage();
         }
 
-        function showMessage(text, isError = false) {
+        function showMessage(text, isError) {
             const msgBox = document.getElementById('auth-message');
             msgBox.innerText = text;
-            msgBox.className = `mb-4 p-3 rounded text-xs font-mono leading-relaxed ${isError ? 'bg-red-950/80 text-red-300 border border-red-800' : 'bg-green-950/80 text-green-300 border border-green-800'}`;
+            msgBox.className = 'mb-4 p-3 rounded text-xs font-mono leading-relaxed ' + (isError ? 'bg-red-950/80 text-red-300 border border-red-800' : 'bg-green-950/80 text-green-300 border border-green-800');
+            msgBox.style.display = 'block';
             msgBox.classList.remove('hidden');
         }
 
         function clearMessage() {
-            document.getElementById('auth-message').classList.add('hidden');
+            const msgBox = document.getElementById('auth-message');
+            msgBox.style.display = 'none';
+            msgBox.classList.add('hidden');
         }
 
         async function handleAuth(event) {
             event.preventDefault();
+            const client = getSupabase();
+            if (!client) {
+                showMessage('Erro ao conectar com o serviço de autenticação.', true);
+                return;
+            }
 
             const email = document.getElementById('auth-email').value;
             const password = document.getElementById('auth-password').value;
@@ -292,17 +310,23 @@
 
             try {
                 if (currentAuthMode === 'signup') {
-                    const { data, error } = await supabase.auth.signUp({ email, password });
+                    const { data, error } = await client.auth.signUp({ 
+                        email: email, 
+                        password: password 
+                    });
                     if (error) throw error;
-                    showMessage('Conta criada com sucesso! Verifique seu e-mail para confirmar seu cadastro.');
+                    showMessage('Conta criada com sucesso! Verifique sua caixa de entrada (e spam) para confirmar o e-mail.', false);
                 } else {
-                    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+                    const { data, error } = await client.auth.signInWithPassword({ 
+                        email: email, 
+                        password: password 
+                    });
                     if (error) throw error;
                     closeModal();
                     checkSession();
                 }
             } catch (err) {
-                showMessage(err.message, true);
+                showMessage(err.message || 'Ocorreu um erro. Tente novamente.', true);
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.innerText = currentAuthMode === 'login' ? 'Entrar' : 'Criar Conta & Receber Confirmação';
@@ -310,41 +334,52 @@
         }
 
         async function handleLogout() {
-            await supabase.auth.signOut();
+            const client = getSupabase();
+            if (client) await client.auth.signOut();
             checkSession();
         }
 
         async function checkSession() {
-            const { data: { session } } = await supabase.auth.getSession();
+            const client = getSupabase();
+            if (!client) return;
+            const { data: { session } } = await client.auth.getSession();
             const loggedOutDiv = document.getElementById('auth-logged-out');
             const loggedInDiv = document.getElementById('auth-logged-in');
             const userDisplay = document.getElementById('user-email-display');
 
             if (session) {
-                loggedOutDiv.classList.add('hidden');
-                loggedInDiv.classList.remove('hidden');
-                loggedInDiv.classList.add('flex');
+                loggedOutDiv.style.display = 'none';
+                loggedInDiv.style.display = 'flex';
                 userDisplay.innerText = session.user.email;
             } else {
-                loggedOutDiv.classList.remove('hidden');
-                loggedInDiv.classList.add('hidden');
-                loggedInDiv.classList.remove('flex');
+                loggedOutDiv.style.display = 'flex';
+                loggedInDiv.style.display = 'none';
             }
         }
 
         function handleProtectedDownload(pluginName) {
-            supabase.auth.getSession().then(({ data: { session } }) => {
+            const client = getSupabase();
+            if (!client) {
+                alert('Aguarde o carregamento do sistema.');
+                return;
+            }
+            client.auth.getSession().then(({ data: { session } }) => {
                 if (!session) {
                     openModal('login');
                     showMessage('Crie uma conta gratuita ou faça login para baixar os plugins.', true);
                 } else {
-                    alert(`Usuário autenticado! Iniciando download do instalador: ${pluginName}`);
+                    alert('Usuário autenticado! Iniciando download do instalador: ' + pluginName);
                 }
             });
         }
 
-        // Verifica a sessão ao carregar a página
-        window.addEventListener('load', () => {
+        // Fecha modal ao clicar fora da caixa
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('auth-modal');
+            if (e.target === modal) closeModal();
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
             checkSession();
         });
     </script>
