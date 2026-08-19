@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRJ Pro Audio | Plugins VST3 & AU Profissionais</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#f59e0b',
+                            cyan: '#06b6d4',
+                            dark: '#0a0d14',
+                            card: '#111827',
+                            border: '#1f2937'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-cyan {
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.3);
+        }
+        .glow-gold {
+            box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200 font-sans antialiased selection:bg-brand-cyan selection:text-black">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-brand-dark/80 border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-gold flex items-center justify-center text-black font-extrabold text-xl shadow-lg">
+                    F
+                </div>
+                <span class="text-2xl font-bold tracking-wider text-white">FRJ <span class="text-brand-cyan">PRO AUDIO</span></span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#plugins" class="hover:text-brand-cyan transition-colors">Plugins</a>
+                <a href="#demo" class="hover:text-brand-cyan transition-colors">Audio Demo</a>
+                <a href="#specs" class="hover:text-brand-cyan transition-colors">Compatibilidade</a>
+                <a href="#downloads" class="bg-brand-cyan hover:bg-cyan-400 text-black px-5 py-2.5 rounded-full font-semibold transition-all shadow-md">Baixar Plugins</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-20 overflow-hidden border-b border-brand-border/50">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-950/30 via-transparent to-transparent pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-brand-cyan text-xs font-semibold uppercase tracking-wider mb-6">
+                <span>⚡ DSP de Alta Precisão & Performance</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                Eleve o nível das suas produções com a <span class="bg-gradient-to-r from-brand-cyan via-teal-300 to-brand-gold bg-clip-text text-transparent">FRJ Pro Audio</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+                Plugins VST3/AU desenhados para entregar punch, clareza e fidelidade analógica instantânea na sua DAW.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#plugins" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-brand-cyan to-teal-400 text-black font-bold rounded-xl shadow-lg hover:brightness-110 transition-all">
+                    Explorar Catálogo
+                </a>
+                <a href="#demo" class="w-full sm:w-auto px-8 py-3.5 bg-brand-card hover:bg-gray-800 border border-brand-border text-white font-semibold rounded-xl transition-all">
+                    Ouvir Comparação A/B
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plugins Grid -->
+    <section id="plugins" class="py-24 max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-white mb-4">Catálogo de Ferramentas</h2>
+            <p class="text-gray-400">Desenvolvidos com algoritmos limpos para máxima estabilidade e zero latência perceptível.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card Plugin 1 -->
+            <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand-cyan/50 transition-all glow-cyan group">
+                <div>
+                    <div class="h-48 rounded-xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 flex items-center justify-center mb-6 overflow-hidden relative">
+                        <i data-lucide="sliders" class="w-16 h-16 text-brand-cyan group-hover:scale-110 transition-transform duration-300"></i>
+                        <span class="absolute top-3 right-3 bg-brand-cyan/20 text-brand-cyan text-xs px-2.5 py-1 rounded-full font-mono">VST3 / AU</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">FRJ Dynamic Punch</h3>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Compressor e shaper de transientes desenhado para colar o baixo e dar impacto cirúrgico na bateria e percussões.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2 text-xs text-gray-500 mb-4">
+                        <span>Win 64-bit</span> • <span>macOS Universal</span>
+                    </div>
+                    <a href="#downloads" class="w-full block text-center py-2.5 bg-gray-800 hover:bg-brand-cyan hover:text-black text-white font-semibold rounded-lg transition-colors border border-gray-700">
+                        Download Grátis
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card Plugin 2 -->
+            <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand-gold/50 transition-all glow-gold group">
+                <div>
+                    <div class="h-48 rounded-xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 flex items-center justify-center mb-6 overflow-hidden relative">
+                        <i data-lucide="activity" class="w-16 h-16 text-brand-gold group-hover:scale-110 transition-transform duration-300"></i>
+                        <span class="absolute top-3 right-3 bg-brand-gold/20 text-brand-gold text-xs px-2.5 py-1 rounded-full font-mono">VST3 / AU</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">FRJ Warmth Saturation</h3>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Saturação harmônica valvulada para aquecer vocais, violões e instrumentos acústicos sem perder a dinâmica natural.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2 text-xs text-gray-500 mb-4">
+                        <span>Win 64-bit</span> • <span>macOS Universal</span>
+                    </div>
+                    <a href="#downloads" class="w-full block text-center py-2.5 bg-gray-800 hover:bg-brand-gold hover:text-black text-white font-semibold rounded-lg transition-colors border border-gray-700">
+                        Download Grátis
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card Plugin 3 -->
+            <div class="bg-brand-card border border-brand-border rounded-2xl p-6 flex flex-col justify-between hover:border-brand-cyan/50 transition-all glow-cyan group">
+                <div>
+                    <div class="h-48 rounded-xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 flex items-center justify-center mb-6 overflow-hidden relative">
+                        <i data-lucide="disc" class="w-16 h-16 text-brand-cyan group-hover:scale-110 transition-transform duration-300"></i>
+                        <span class="absolute top-3 right-3 bg-brand-cyan/20 text-brand-cyan text-xs px-2.5 py-1 rounded-full font-mono">VST3 / AU</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">FRJ Master Air EQ</h3>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Equalizador musical focado em adicionar brilho cristalino (Air Band) e peso nos graves no barramento de masterização.
+                    </p>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2 text-xs text-gray-500 mb-4">
+                        <span>Win 64-bit</span> • <span>macOS Universal</span>
+                    </div>
+                    <a href="#downloads" class="w-full block text-center py-2.5 bg-gray-800 hover:bg-brand-cyan hover:text-black text-white font-semibold rounded-lg transition-colors border border-gray-700">
+                        Download Grátis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A/B Audio Comparison Demo -->
+    <section id="demo" class="py-20 bg-gradient-to-b from-transparent via-gray-950 to-transparent border-t border-brand-border/50">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-white mb-3">Teste A/B em Tempo Real</h2>
+            <p class="text-gray-400 mb-8">Ouça a diferença do processamento nos timbres da FRJ Pro Audio.</p>
+
+            <div class="bg-brand-card border border-brand-border rounded-2xl p-8 max-w-xl mx-auto shadow-2xl">
+                <div class="flex items-center justify-between mb-6">
+                    <span class="text-sm font-semibold text-gray-300">Demonstração: Mix Bus Processing</span>
+                    <span id="audio-status" class="text-xs font-mono px-2 py-1 bg-gray-800 text-brand-cyan rounded">PROCESSADO (WET)</span>
+                </div>
+                
+                <div class="flex items-center justify-center gap-4 mb-6">
+                    <button id="btn-bypass" onclick="setMode('dry')" class="px-5 py-2.5 rounded-lg font-bold text-sm bg-gray-800 text-gray-400 hover:text-white transition-all border border-gray-700">
+                        Bypass (Dry)
+                    </button>
+                    <button id="btn-wet" onclick="setMode('wet')" class="px-5 py-2.5 rounded-lg font-bold text-sm bg-brand-cyan text-black transition-all shadow-md">
+                        FRJ Active (Wet)
+                    </button>
+                </div>
+
+                <div class="bg-gray-900 rounded-xl p-4 flex items-center justify-center border border-gray-800">
+                    <audio id="demo-player" controls class="w-full">
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                        Seu navegador não suporta reprodução de áudio.
+                    </audio>
+                </div>
+                <p class="text-xs text-gray-500 mt-4">*Você pode substituir o link acima pelo arquivo MP3 da sua demonstração.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compatibilidade & Requisitos -->
+    <section id="specs" class="py-20 max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-brand-card border border-brand-border rounded-2xl p-8">
+                <div class="flex items-center space-x-3 mb-6">
+                    <i data-lucide="cpu" class="w-6 h-6 text-brand-cyan"></i>
+                    <h3 class="text-xl font-bold text-white">Requisitos de Sistema</h3>
+                </div>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-center space-x-2">
+                        <span class="text-brand-cyan">✔</span>
+                        <span><strong>Windows:</strong> Windows 10 ou 11 (64-bit)</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span class="text-brand-cyan">✔</span>
+                        <span><strong>macOS:</strong> macOS 11+ (Intel & Apple Silicon Native)</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span class="text-brand-cyan">✔</span>
+                        <span><strong>Formatos:</strong> VST3, AU (Audio Units)</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span class="text-brand-cyan">✔</span>
+                        <span><strong>DAWs Suportadas:</strong> Reaper, FL Studio, Ableton Live, Studio One, Pro Tools, Logic Pro, Cubase.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="downloads" class="bg-brand-card border border-brand-border rounded-2xl p-8 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <i data-lucide="download" class="w-6 h-6 text-brand-gold"></i>
+                        <h3 class="text-xl font-bold text-white">Download Direto</h3>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-6">
+                        Baixe o instalador universal contendo todos os plugins da suíte FRJ Pro Audio de uma só vez.
+                    </p>
+                </div>
+                <div class="space-y-3">
+                    <a href="#" class="flex items-center justify-between p-3.5 bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl transition-all group">
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="folder-archive" class="w-5 h-5 text-brand-cyan"></i>
+                            <span class="text-sm font-semibold text-white">FRJ_Suite_Windows_x64.zip</span>
+                        </div>
+                        <span class="text-xs bg-brand-cyan text-black font-bold px-2 py-1 rounded">Baixar</span>
+                    </a>
+                    <a href="#" class="flex items-center justify-between p-3.5 bg-gray-900 hover:bg-gray-800 border border-gray-700 rounded-xl transition-all group">
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="folder-archive" class="w-5 h-5 text-brand-gold"></i>
+                            <span class="text-sm font-semibold text-white">FRJ_Suite_macOS_Universal.pkg</span>
+                        </div>
+                        <span class="text-xs bg-brand-gold text-black font-bold px-2 py-1 rounded">Baixar</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-brand-border py-12 bg-black">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-2">
+                <span class="text-lg font-bold text-white">FRJ <span class="text-brand-cyan">PRO AUDIO</span></span>
+                <span class="text-xs text-gray-500">© 2026. Todos os direitos reservados.</span>
+            </div>
+            <div class="flex space-x-6 text-sm text-gray-400">
+                <a href="#plugins" class="hover:text-white transition-colors">Plugins</a>
+                <a href="#specs" class="hover:text-white transition-colors">Requisitos</a>
+                <a href="#downloads" class="hover:text-white transition-colors">Instaladores</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        function setMode(mode) {
+            const btnBypass = document.getElementById('btn-bypass');
+            const btnWet = document.getElementById('btn-wet');
+            const status = document.getElementById('audio-status');
+
+            if(mode === 'dry') {
+                btnBypass.className = "px-5 py-2.5 rounded-lg font-bold text-sm bg-brand-gold text-black transition-all shadow-md";
+                btnWet.className = "px-5 py-2.5 rounded-lg font-bold text-sm bg-gray-800 text-gray-400 hover:text-white transition-all border border-gray-700";
+                status.innerText = "ORIGINAL (DRY)";
+                status.className = "text-xs font-mono px-2 py-1 bg-gray-800 text-brand-gold rounded";
+            } else {
+                btnWet.className = "px-5 py-2.5 rounded-lg font-bold text-sm bg-brand-cyan text-black transition-all shadow-md";
+                btnBypass.className = "px-5 py-2.5 rounded-lg font-bold text-sm bg-gray-800 text-gray-400 hover:text-white transition-all border border-gray-700";
+                status.innerText = "PROCESSADO (WET)";
+                status.className = "text-xs font-mono px-2 py-1 bg-gray-800 text-brand-cyan rounded";
+            }
+        }
+    </script>
+</body>
+</html>
