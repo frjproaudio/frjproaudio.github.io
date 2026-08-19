@@ -35,7 +35,6 @@
             color: #e2e8f0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        /* Fundo de estúdio profissional */
         .bg-studio-overlay {
             background-image: 
                 linear-gradient(to bottom, rgba(7, 8, 9, 0.92) 0%, rgba(7, 8, 9, 0.85) 50%, rgba(7, 8, 9, 0.98) 100%),
@@ -44,7 +43,6 @@
             background-position: center center;
             background-attachment: fixed;
         }
-        /* Logo limpo, nítido e sem blur */
         .logo-clean {
             height: 115px;
             width: auto;
@@ -59,10 +57,9 @@
 </head>
 <body class="antialiased selection:bg-white selection:text-black min-h-screen flex flex-col justify-between bg-studio-overlay">
 
-    <!-- Header com Logo, Subtítulo DSP e Botões de Conta -->
+    <!-- Header -->
     <header class="border-b border-spl-border bg-spl-bg/95 sticky top-0 z-40 backdrop-blur-md">
         <div class="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between min-h-[135px]">
-            <!-- Logo + Subtítulo High Performance Audio DSP -->
             <a href="#" class="flex items-center space-x-5 group">
                 <img src="logo%20ok.png" alt="Logo" class="logo-clean object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.src='logo ok.png';">
                 <div class="flex flex-col justify-center">
@@ -70,13 +67,11 @@
                 </div>
             </a>
             
-            <!-- Ações da Direita -->
             <div class="flex items-center space-x-6">
                 <div class="text-xs uppercase tracking-widest text-spl-textMuted font-mono hidden md:block">
                     VST3 • AU • 64-BIT
                 </div>
 
-                <!-- Botões para Usuário Deslogado -->
                 <div id="auth-logged-out" class="flex items-center space-x-3">
                     <button type="button" onclick="openAuthModal('login')" class="px-5 py-2.5 border border-spl-border hover:border-white/50 text-xs font-mono uppercase tracking-wider text-gray-200 rounded transition-all cursor-pointer">
                         Entrar
@@ -86,7 +81,6 @@
                     </button>
                 </div>
 
-                <!-- Painel para Usuário Logado -->
                 <div id="auth-logged-in" style="display: none;" class="items-center space-x-4 font-mono text-xs">
                     <span id="user-email-display" class="text-gray-300"></span>
                     <button type="button" onclick="logoutUser()" class="text-red-400 hover:text-red-300 uppercase tracking-wider underline cursor-pointer">
@@ -111,16 +105,13 @@
             </div>
         </div>
 
-        <!-- Grid dos 2 Plugins -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-            <!-- Card 1: Strip Pro -->
+            <!-- Card Strip Pro -->
             <div class="bg-spl-card backdrop-blur-xl border border-spl-border rounded-2xl overflow-hidden flex flex-col justify-between shadow-spl-card hover:shadow-spl-card-hover hover:border-spl-borderHover hover:bg-spl-cardHover transition-all duration-300 group">
                 <div class="p-8">
                     <div class="w-full h-72 sm:h-80 bg-black/70 rounded-xl border border-white/5 flex items-center justify-center mb-6 overflow-hidden p-4 shadow-inner">
                         <img src="strip-pro.png" alt="Strip Pro" class="w-full h-full object-contain filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-300" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-xs font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-sm text-white font-mono\'>strip-pro.png</span></div>'">
                     </div>
-
                     <div class="mb-3">
                         <span class="text-[11px] font-mono uppercase tracking-wider text-spl-textMuted block mb-1">Channel Strip Completo</span>
                         <h2 class="text-2xl font-semibold text-white tracking-wide">Strip Pro</h2>
@@ -129,7 +120,6 @@
                         Cadeia de processamento completa com controle de dinâmica, ganho e modelagem tonal rápida para canais individuais e barramentos.
                     </p>
                 </div>
-
                 <div class="p-8 pt-0 mt-2 border-t border-white/5 flex items-center justify-between">
                     <span class="text-xs font-mono text-spl-textMuted">VST3 / AU • 64-bit</span>
                     <button type="button" onclick="triggerDownload('Strip Pro')" class="px-6 py-2.5 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded-lg uppercase tracking-wider transition-all shadow-md active:scale-95 cursor-pointer">
@@ -138,13 +128,12 @@
                 </div>
             </div>
 
-            <!-- Card 2: Energy -->
+            <!-- Card Energy -->
             <div class="bg-spl-card backdrop-blur-xl border border-spl-border rounded-2xl overflow-hidden flex flex-col justify-between shadow-spl-card hover:shadow-spl-card-hover hover:border-spl-borderHover hover:bg-spl-cardHover transition-all duration-300 group">
                 <div class="p-8">
                     <div class="w-full h-72 sm:h-80 bg-black/70 rounded-xl border border-white/5 flex items-center justify-center mb-6 overflow-hidden p-4 shadow-inner">
                         <img src="energy.png" alt="Energy" class="w-full h-full object-contain filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-300" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-xs font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-sm text-white font-mono\'>energy.png</span></div>'">
                     </div>
-
                     <div class="mb-3">
                         <span class="text-[11px] font-mono uppercase tracking-wider text-spl-textMuted block mb-1">Dinâmica & Saturação</span>
                         <h2 class="text-2xl font-semibold text-white tracking-wide">Energy</h2>
@@ -153,7 +142,6 @@
                         Processador de impacto, presença e excitação harmônica. Traz transientes vivos e densidade para a mixagem sem soar agressivo.
                     </p>
                 </div>
-
                 <div class="p-8 pt-0 mt-2 border-t border-white/5 flex items-center justify-between">
                     <span class="text-xs font-mono text-spl-textMuted">VST3 / AU • 64-bit</span>
                     <button type="button" onclick="triggerDownload('Energy')" class="px-6 py-2.5 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded-lg uppercase tracking-wider transition-all shadow-md active:scale-95 cursor-pointer">
@@ -161,10 +149,9 @@
                     </button>
                 </div>
             </div>
-
         </div>
 
-        <!-- Rodapé de Especificações -->
+        <!-- Rodapé Especificações -->
         <div class="mt-16 p-6 rounded-xl bg-spl-card/60 backdrop-blur-md border border-spl-border grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-spl-textMuted font-mono">
             <div>
                 <span class="text-white font-semibold block mb-1 uppercase tracking-wider">SISTEMA</span>
@@ -181,19 +168,19 @@
         </div>
     </main>
 
-    <!-- Footer com Logo Isolado -->
+    <!-- Footer -->
     <footer class="border-t border-spl-border py-12 text-center text-xs text-spl-textMuted font-mono bg-spl-bg/95 backdrop-blur-md flex flex-col items-center justify-center gap-4">
         <img src="logo%20ok.png" alt="Logo" class="logo-clean-footer object-contain opacity-90 transition-transform duration-300 hover:scale-105" onerror="this.src='logo ok.png';">
         <span class="text-[11px] text-gray-500">© 2026. TODOS OS DIREITOS RESERVADOS.</span>
     </footer>
 
-    <!-- MODAL DE LOGIN / CADASTRO -->
+    <!-- MODAL DE AUTENTICAÇÃO / RESET PASSWORD -->
     <div id="auth-modal" style="display: none;" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm items-center justify-center p-4">
         <div class="bg-[#0f1114] border border-spl-border w-full max-w-md rounded-2xl p-8 shadow-2xl relative">
             <button type="button" onclick="closeAuthModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl font-mono leading-none cursor-pointer">&times;</button>
             
-            <!-- Abas -->
-            <div class="flex border-b border-spl-border mb-6">
+            <!-- Abas (Ocultas durante atualização de senha) -->
+            <div id="auth-tabs" class="flex border-b border-spl-border mb-6">
                 <button type="button" id="tab-login" onclick="switchTab('login')" class="pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold cursor-pointer">
                     Entrar
                 </button>
@@ -202,32 +189,50 @@
                 </button>
             </div>
 
+            <!-- Título Alternativo para Reset -->
+            <div id="reset-header" style="display: none;" class="border-b border-spl-border pb-3 mb-6">
+                <h3 id="reset-title" class="text-sm font-mono uppercase text-white font-bold tracking-wider">Recuperar Senha</h3>
+            </div>
+
             <!-- Alerta / Feedback -->
             <div id="auth-alert" style="display: none;" class="mb-4 p-3 rounded text-xs font-mono leading-relaxed"></div>
 
             <!-- Formulário -->
             <form id="auth-form" onsubmit="submitAuthForm(event)" class="space-y-4">
-                <div>
+                <div id="field-email">
                     <label class="block text-xs font-mono uppercase text-gray-400 mb-1">E-mail</label>
-                    <input type="email" id="input-email" required class="w-full bg-black/60 border border-spl-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-white transition-colors" placeholder="seuemail@exemplo.com">
+                    <input type="email" id="input-email" class="w-full bg-black/60 border border-spl-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-white transition-colors" placeholder="seuemail@exemplo.com">
                 </div>
-                <div>
-                    <label class="block text-xs font-mono uppercase text-gray-400 mb-1">Senha</label>
-                    <input type="password" id="input-password" required minlength="6" class="w-full bg-black/60 border border-spl-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-white transition-colors" placeholder="••••••••">
+                
+                <div id="field-password">
+                    <div class="flex justify-between items-center mb-1">
+                        <label id="label-password" class="block text-xs font-mono uppercase text-gray-400">Senha</label>
+                        <button type="button" id="btn-forgot-password" onclick="switchTab('forgot')" class="text-[11px] font-mono text-gray-400 hover:text-white underline cursor-pointer">
+                            Esqueci a senha
+                        </button>
+                    </div>
+                    <input type="password" id="input-password" minlength="6" class="w-full bg-black/60 border border-spl-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-white transition-colors" placeholder="••••••••">
                 </div>
 
                 <button type="submit" id="btn-submit" class="w-full py-3 bg-white hover:bg-gray-200 text-black font-semibold text-xs uppercase tracking-wider rounded-lg transition-all mt-2 cursor-pointer">
                     Entrar
                 </button>
+
+                <div id="btn-back-login-box" style="display: none;" class="text-center pt-2">
+                    <button type="button" onclick="switchTab('login')" class="text-xs font-mono text-gray-400 hover:text-white uppercase tracking-wider underline cursor-pointer">
+                        ← Voltar para o Login
+                    </button>
+                </div>
             </form>
         </div>
     </div>
 
-    <!-- Script de Autenticação Supabase Nativo -->
+    <!-- Script de Autenticação Supabase com Reset Password -->
     <script>
         const SUPABASE_URL = 'https://xeraxrhmzuxknjqxnlwz.supabase.co';
         const SUPABASE_KEY = 'sb_publishable_u8d0bA9UBxw-hHmEsoKM9A_hh5nTYG6';
         let currentMode = 'login';
+        let resetAccessToken = null;
 
         function openAuthModal(mode) {
             currentMode = mode || 'login';
@@ -245,16 +250,54 @@
             currentMode = mode;
             const tLogin = document.getElementById('tab-login');
             const tSignup = document.getElementById('tab-signup');
+            const tabsContainer = document.getElementById('auth-tabs');
+            const resetHeader = document.getElementById('reset-header');
+            const resetTitle = document.getElementById('reset-title');
+            const fieldEmail = document.getElementById('field-email');
+            const fieldPassword = document.getElementById('field-password');
+            const inputEmail = document.getElementById('input-email');
+            const inputPassword = document.getElementById('input-password');
+            const forgotBtn = document.getElementById('btn-forgot-password');
+            const backBtnBox = document.getElementById('btn-back-login-box');
             const btn = document.getElementById('btn-submit');
+            const labelPassword = document.getElementById('label-password');
+
+            tabsContainer.style.display = 'flex';
+            resetHeader.style.display = 'none';
+            fieldEmail.style.display = 'block';
+            fieldPassword.style.display = 'block';
+            forgotBtn.style.display = 'inline';
+            backBtnBox.style.display = 'none';
+            inputEmail.required = true;
+            inputPassword.required = true;
+            labelPassword.innerText = 'Senha';
 
             if (mode === 'login') {
                 tLogin.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold cursor-pointer';
                 tSignup.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-transparent text-gray-500 hover:text-gray-300 cursor-pointer';
                 btn.innerText = 'Entrar';
-            } else {
+            } else if (mode === 'signup') {
                 tSignup.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold cursor-pointer';
                 tLogin.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-transparent text-gray-500 hover:text-gray-300 cursor-pointer';
+                forgotBtn.style.display = 'none';
                 btn.innerText = 'Criar Conta & Receber Confirmação';
+            } else if (mode === 'forgot') {
+                tabsContainer.style.display = 'none';
+                resetHeader.style.display = 'block';
+                resetTitle.innerText = 'Recuperar Senha';
+                fieldPassword.style.display = 'none';
+                inputPassword.required = false;
+                backBtnBox.style.display = 'block';
+                btn.innerText = 'Enviar Link de Redefinição';
+            } else if (mode === 'update_password') {
+                tabsContainer.style.display = 'none';
+                resetHeader.style.display = 'block';
+                resetTitle.innerText = 'Definir Nova Senha';
+                fieldEmail.style.display = 'none';
+                inputEmail.required = false;
+                forgotBtn.style.display = 'none';
+                labelPassword.innerText = 'Nova Senha';
+                btn.innerText = 'Salvar Nova Senha';
             }
             hideAlert();
         }
@@ -278,37 +321,64 @@
             btn.disabled = true;
             btn.innerText = 'Aguarde...';
 
-            const endpoint = currentMode === 'signup' ? '/auth/v1/signup' : '/auth/v1/token?grant_type=password';
-
             try {
-                const res = await fetch(SUPABASE_URL + endpoint, {
-                    method: 'POST',
-                    headers: {
-                        'apikey': SUPABASE_KEY,
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ email: email, password: password })
-                });
-
-                const data = await res.json();
-
-                if (!res.ok) {
-                    throw new Error(data.msg || data.error_description || data.message || 'Erro ao processar.');
-                }
-
                 if (currentMode === 'signup') {
+                    const res = await fetch(SUPABASE_URL + '/auth/v1/signup', {
+                        method: 'POST',
+                        headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email, password })
+                    });
+                    const data = await res.json();
+                    if (!res.ok) throw new Error(data.msg || data.error_description || data.message || 'Erro no cadastro.');
                     showAlert('Conta criada com sucesso! Enviamos um link de confirmação para o seu e-mail.', false);
-                } else {
+                } 
+                else if (currentMode === 'login') {
+                    const res = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
+                        method: 'POST',
+                        headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email, password })
+                    });
+                    const data = await res.json();
+                    if (!res.ok) throw new Error(data.msg || data.error_description || data.message || 'E-mail ou senha incorretos.');
                     localStorage.setItem('frj_auth_token', data.access_token);
                     localStorage.setItem('frj_user_email', data.user ? data.user.email : email);
                     closeAuthModal();
                     updateInterface();
+                } 
+                else if (currentMode === 'forgot') {
+                    const res = await fetch(SUPABASE_URL + '/auth/v1/recover', {
+                        method: 'POST',
+                        headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email })
+                    });
+                    const data = await res.json();
+                    if (!res.ok) throw new Error(data.msg || data.error_description || data.message || 'Erro ao enviar e-mail.');
+                    showAlert('Link de recuperação enviado! Verifique sua caixa de entrada e spam.', false);
+                }
+                else if (currentMode === 'update_password') {
+                    const token = resetAccessToken || localStorage.getItem('frj_auth_token');
+                    const res = await fetch(SUPABASE_URL + '/auth/v1/user', {
+                        method: 'PUT',
+                        headers: { 
+                            'apikey': SUPABASE_KEY, 
+                            'Authorization': 'Bearer ' + token,
+                            'Content-Type': 'application/json' 
+                        },
+                        body: JSON.stringify({ password })
+                    });
+                    const data = await res.json();
+                    if (!res.ok) throw new Error(data.msg || data.error_description || data.message || 'Erro ao atualizar senha.');
+                    showAlert('Senha alterada com sucesso! Você já pode entrar.', false);
+                    setTimeout(() => switchTab('login'), 2000);
                 }
             } catch (err) {
                 showAlert(err.message, true);
             } finally {
                 btn.disabled = false;
-                btn.innerText = currentMode === 'login' ? 'Entrar' : 'Criar Conta & Receber Confirmação';
+                if (currentMode === 'login') btn.innerText = 'Entrar';
+                else if (currentMode === 'signup') btn.innerText = 'Criar Conta & Receber Confirmação';
+                else if (currentMode === 'forgot') btn.innerText = 'Enviar Link de Redefinição';
+                else if (currentMode === 'update_password') btn.innerText = 'Salvar Nova Senha';
             }
         }
 
@@ -345,12 +415,26 @@
             }
         }
 
+        // Detecta retorno de link de recuperação de senha pelo hash da URL
+        function checkPasswordRecoveryLink() {
+            const hash = window.location.hash;
+            if (hash && hash.includes('type=recovery')) {
+                const params = new URLSearchParams(hash.substring(1));
+                resetAccessToken = params.get('access_token');
+                if (resetAccessToken) {
+                    openAuthModal('update_password');
+                    showAlert('Insira sua nova senha abaixo.', false);
+                }
+            }
+        }
+
         window.addEventListener('click', (e) => {
             const modal = document.getElementById('auth-modal');
             if (e.target === modal) closeAuthModal();
         });
 
         updateInterface();
+        checkPasswordRecoveryLink();
     </script>
 </body>
 </html>
