@@ -14,7 +14,7 @@
                         spl: {
                             bg: '#0c0d0e',
                             card: '#141618',
-                            cardHover: '#1a1d20',
+                            cardHover: '#191c1f',
                             border: '#24272b',
                             textMuted: '#8a9099',
                             accent: '#ffffff'
@@ -34,7 +34,7 @@
 </head>
 <body class="antialiased selection:bg-white selection:text-black">
 
-    <!-- Header Minimalista -->
+    <!-- Header Minimalista Estilo SPL -->
     <header class="border-b border-spl-border bg-spl-bg/90 sticky top-0 z-50 backdrop-blur-sm">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center space-x-3">
@@ -64,41 +64,42 @@
                 <span class="text-xl font-bold tracking-widest text-white uppercase">FRJ PRO AUDIO</span>
             </a>
             <div class="text-xs uppercase tracking-widest text-spl-textMuted font-mono">
-                VST3 • AU • 64-Bit
+                VST3 • AU • 64-BIT
             </div>
         </div>
     </header>
 
-    <!-- Título Principal (Estilo SPL Header) -->
+    <!-- Seção Principal -->
     <main class="max-w-6xl mx-auto px-6 pt-16 pb-24">
-        <div class="border-b border-spl-border pb-8 mb-12">
-            <h1 class="text-3xl sm:text-4xl font-light tracking-tight text-white mb-2">Plugins</h1>
-            <p class="text-sm text-spl-textMuted max-w-xl">
-                Processamento DSP de alta performance para mixagem e masterização. Compatível com todas as principais DAWs (Windows & macOS).
-            </p>
+        <div class="border-b border-spl-border pb-8 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+                <h1 class="text-3xl sm:text-4xl font-light tracking-tight text-white mb-2">Plugins</h1>
+                <p class="text-sm text-spl-textMuted max-w-xl">
+                    Processamento DSP cirúrgico para mixagem e masterização.
+                </p>
+            </div>
+            <div class="text-xs font-mono text-spl-textMuted">
+                3 PLUGINS DISPONÍVEIS
+            </div>
         </div>
 
-        <!-- Grid de Produtos no Estilo SPL -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Grid dos 3 Plugins -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            <!-- Plugin Card 1 -->
+            <!-- Card 1: Strip Pro -->
             <div class="bg-spl-card border border-spl-border rounded-lg overflow-hidden flex flex-col justify-between hover:bg-spl-cardHover hover:border-gray-600 transition-all duration-200">
                 <div class="p-6">
-                    <!-- Espaço para o Print do Plugin -->
-                    <div class="w-full h-44 bg-black/60 rounded border border-spl-border/50 flex items-center justify-center mb-6 overflow-hidden">
-                        <!-- Substitua 'src' pelo nome do arquivo do seu print, ex: src="meu-plugin-1.png" -->
-                        <div class="text-center p-4">
-                            <span class="text-xs font-mono text-spl-textMuted uppercase tracking-wider block mb-1">[ Imagem da Interface ]</span>
-                            <span class="text-xs text-gray-500">Suba o print como <code class="text-gray-400">plugin1.png</code></span>
-                        </div>
+                    <!-- Imagem da GUI do Strip Pro -->
+                    <div class="w-full h-48 bg-black/70 rounded border border-spl-border/60 flex items-center justify-center mb-6 overflow-hidden">
+                        <img src="strip-pro.png" alt="FRJ Strip Pro" class="w-full h-full object-contain" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-[10px] font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-xs text-white font-mono\'>strip-pro.png</span></div>'">
                     </div>
 
-                    <div class="mb-4">
-                        <span class="text-[11px] font-mono uppercase tracking-wider text-spl-textMuted block mb-1">Dynamic Processor</span>
-                        <h2 class="text-lg font-semibold text-white tracking-wide">FRJ Dynamic Punch</h2>
+                    <div class="mb-3">
+                        <span class="text-[11px] font-mono uppercase tracking-wider text-spl-textMuted block mb-1">Channel Strip Completo</span>
+                        <h2 class="text-lg font-semibold text-white tracking-wide">Strip Pro</h2>
                     </div>
                     <p class="text-xs text-spl-textMuted leading-relaxed">
-                        Compressor cirúrgico e shaper de transientes desenhado para colar o baixo e dar punch na bateria e percussões.
+                        Cadeia de processamento completa com controle de dinâmica, ganho e modelagem tonal rápida para canais individuais e barramentos.
                     </p>
                 </div>
 
@@ -110,22 +111,20 @@
                 </div>
             </div>
 
-            <!-- Plugin Card 2 -->
+            <!-- Card 2: Energy -->
             <div class="bg-spl-card border border-spl-border rounded-lg overflow-hidden flex flex-col justify-between hover:bg-spl-cardHover hover:border-gray-600 transition-all duration-200">
                 <div class="p-6">
-                    <div class="w-full h-44 bg-black/60 rounded border border-spl-border/50 flex items-center justify-center mb-6 overflow-hidden">
-                        <div class="text-center p-4">
-                            <span class="text-xs font-mono text-spl-textMuted uppercase tracking-wider block mb-1">[ Imagem da Interface ]</span>
-                            <span class="text-xs text-gray-500">Suba o print como <code class="text-gray-400">plugin2.png</code></span>
-                        </div>
+                    <!-- Imagem da GUI do Energy -->
+                    <div class="w-full h-48 bg-black/70 rounded border border-spl-border/60 flex items-center justify-center mb-6 overflow-hidden">
+                        <img src="energy.png" alt="FRJ Energy" class="w-full h-full object-contain" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-[10px] font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-xs text-white font-mono\'>energy.png</span></div>'">
                     </div>
 
-                    <div class="mb-4">
-                        <span class="text-[11px] font-mono uppercase tracking-wider text-spl-textMuted block mb-1">Tube Saturation</span>
-                        <h2 class="text-lg font-semibold text-white tracking-wide">FRJ Warmth Saturation</h2>
+                    <div class="mb-3">
+                        <span class="text-[11px] font-mono uppercase tracking-wider text-spl-textMuted block mb-1">Dinâmica & Saturação</span>
+                        <h2 class="text-lg font-semibold text-white tracking-wide">Energy</h2>
                     </div>
                     <p class="text-xs text-spl-textMuted leading-relaxed">
-                        Saturação harmônica valvulada para aquecer vocais, cordas e instrumentos acústicos com textura analógica limpa.
+                        Processador de impacto, presença e excitação harmônica. Traz transientes vivos e densidade para a mixagem sem soar agressivo.
                     </p>
                 </div>
 
@@ -137,22 +136,20 @@
                 </div>
             </div>
 
-            <!-- Plugin Card 3 -->
+            <!-- Card 3: Pro EQ -->
             <div class="bg-spl-card border border-spl-border rounded-lg overflow-hidden flex flex-col justify-between hover:bg-spl-cardHover hover:border-gray-600 transition-all duration-200">
                 <div class="p-6">
-                    <div class="w-full h-44 bg-black/60 rounded border border-spl-border/50 flex items-center justify-center mb-6 overflow-hidden">
-                        <div class="text-center p-4">
-                            <span class="text-xs font-mono text-spl-textMuted uppercase tracking-wider block mb-1">[ Imagem da Interface ]</span>
-                            <span class="text-xs text-gray-500">Suba o print como <code class="text-gray-400">plugin3.png</code></span>
-                        </div>
+                    <!-- Imagem da GUI do Pro EQ -->
+                    <div class="w-full h-48 bg-black/70 rounded border border-spl-border/60 flex items-center justify-center mb-6 overflow-hidden">
+                        <img src="pro-eq.png" alt="FRJ Pro EQ" class="w-full h-full object-contain" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-[10px] font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-xs text-white font-mono\'>pro-eq.png</span></div>'">
                     </div>
 
-                    <div class="mb-4">
-                        <span class="text-[11px] font-mono uppercase tracking-wider text-spl-textMuted block mb-1">Mastering Equalizer</span>
-                        <h2 class="text-lg font-semibold text-white tracking-wide">FRJ Master Air EQ</h2>
+                    <div class="mb-3">
+                        <span class="text-[11px] font-mono uppercase tracking-wider text-spl-textMuted block mb-1">Equalizador Cirúrgico</span>
+                        <h2 class="text-lg font-semibold text-white tracking-wide">Pro EQ</h2>
                     </div>
                     <p class="text-xs text-spl-textMuted leading-relaxed">
-                        Equalizador musical com bandas cirúrgicas para adição de brilho (Air Band) e firmeza nos subgraves.
+                        Equalizador paramétrico de alta precisão de fase com corte de ressonâncias limpo e curvas musicais de correção e brilho.
                     </p>
                 </div>
 
@@ -166,18 +163,18 @@
 
         </div>
 
-        <!-- Seção Simples de Requisitos no Rodapé -->
+        <!-- Especificações de Rodapé -->
         <div class="mt-20 pt-8 border-t border-spl-border grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-spl-textMuted font-mono">
             <div>
-                <span class="text-white font-semibold block mb-1">COMPATIBILIDADE</span>
-                Windows 10 / 11 (64-bit)<br>macOS 11+ (Intel & Apple Silicon)
+                <span class="text-white font-semibold block mb-1">SISTEMA</span>
+                Windows 10 / 11 (64-bit)<br>macOS (Intel / Apple Silicon)
             </div>
             <div>
                 <span class="text-white font-semibold block mb-1">FORMATOS</span>
-                VST3, AU (Audio Units)<br>Sample Rates até 192kHz
+                VST3, AU (Audio Units)<br>44.1kHz até 192kHz
             </div>
             <div>
-                <span class="text-white font-semibold block mb-1">SUPORTE & CONTATO</span>
+                <span class="text-white font-semibold block mb-1">SUPORTE</span>
                 frjproaudio@proton.me
             </div>
         </div>
@@ -185,7 +182,7 @@
 
     <!-- Footer -->
     <footer class="border-t border-spl-border py-8 text-center text-xs text-spl-textMuted font-mono">
-        © 2026 FRJ PRO AUDIO. ALL RIGHTS RESERVED.
+        © 2026 FRJ PRO AUDIO. TODOS OS DIREITOS RESERVADOS.
     </footer>
 
 </body>
