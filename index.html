@@ -44,24 +44,21 @@
             background-position: center top;
             background-attachment: fixed;
         }
-        /* Destaque máximo para o logo: Branco puro, alto contraste e nitidez */
-        .logo-ultra-bright {
-            filter: invert(1) brightness(2.5) contrast(300%) drop-shadow(0 0 12px rgba(255, 255, 255, 0.4));
-            mix-blend-mode: screen;
+        /* Nitidez e contraste para o logo no tema escuro */
+        .logo-display {
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.25));
         }
     </style>
 </head>
 <body class="antialiased selection:bg-white selection:text-black min-h-screen flex flex-col justify-between bg-studio-overlay">
 
-    <!-- Header com Logo Grande e Visível -->
+    <!-- Header com o novo logo (logo new.png) -->
     <header class="border-b border-spl-border bg-spl-bg/95 sticky top-0 z-50 backdrop-blur-md">
         <div class="max-w-6xl mx-auto px-6 h-32 flex items-center justify-between">
             <a href="#" class="flex items-center space-x-5 group">
-                <!-- Imagem do Logo em Escala Ampliada (h-28 w-28) -->
+                <!-- Imagem do novo logo -->
                 <div class="h-28 w-28 flex items-center justify-center p-1">
-                    <img src="logo.png" alt="FRJ Pro Audio" class="h-full w-full object-contain logo-ultra-bright transition-transform duration-300 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <!-- Fallback provisório -->
-                    <div class="hidden items-center justify-center w-16 h-16 rounded-xl bg-white/10 text-white font-bold text-2xl">F</div>
+                    <img src="logo%20new.png" alt="FRJ Pro Audio" class="h-full w-full object-contain logo-display transition-transform duration-300 group-hover:scale-105" onerror="this.src='logo new.png';">
                 </div>
                 <div class="flex flex-col justify-center">
                     <span class="text-2xl sm:text-3xl font-extrabold tracking-widest text-white uppercase leading-none">FRJ PRO AUDIO</span>
@@ -161,11 +158,10 @@
         </div>
     </main>
 
-    <!-- Footer com Logo Grande Centralizado -->
+    <!-- Footer com o novo logo centralizado -->
     <footer class="border-t border-spl-border py-12 text-center text-xs text-spl-textMuted font-mono bg-spl-bg/95 backdrop-blur-md flex flex-col items-center justify-center gap-4">
-        <!-- Logo do Rodapé Bem Maior (h-24 w-24) -->
         <div class="h-24 w-24 flex items-center justify-center">
-            <img src="logo.png" alt="FRJ Pro Audio" class="h-full w-full object-contain logo-ultra-bright opacity-90 transition-transform duration-300 hover:scale-105">
+            <img src="logo%20new.png" alt="FRJ Pro Audio" class="h-full w-full object-contain logo-display opacity-90 transition-transform duration-300 hover:scale-105" onerror="this.src='logo new.png';">
         </div>
         <span class="tracking-widest text-gray-400 font-semibold uppercase">FRJ PRO AUDIO</span>
         <span class="text-[11px] text-gray-500">© 2026 FRJ PRO AUDIO. TODOS OS DIREITOS RESERVADOS.</span>
