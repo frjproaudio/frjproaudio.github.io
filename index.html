@@ -12,18 +12,18 @@
                 extend: {
                     colors: {
                         spl: {
-                            bg: '#08090a',
-                            card: 'rgba(18, 20, 24, 0.75)',
-                            cardHover: 'rgba(28, 31, 38, 0.85)',
-                            border: 'rgba(255, 255, 255, 0.1)',
-                            borderHover: 'rgba(255, 255, 255, 0.25)',
-                            textMuted: '#94a3b8',
+                            bg: '#070809',
+                            card: 'rgba(15, 17, 20, 0.85)',
+                            cardHover: 'rgba(23, 26, 31, 0.95)',
+                            border: 'rgba(255, 255, 255, 0.08)',
+                            borderHover: 'rgba(255, 255, 255, 0.2)',
+                            textMuted: '#8e96a3',
                             accent: '#ffffff'
                         }
                     },
                     boxShadow: {
-                        'spl-card': '0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(255, 255, 255, 0.05)',
-                        'spl-card-hover': '0 30px 60px -12px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 255, 255, 0.08)'
+                        'spl-card': '0 25px 50px -12px rgba(0, 0, 0, 0.95), 0 0 1px 1px rgba(255, 255, 255, 0.04)',
+                        'spl-card-hover': '0 30px 60px -12px rgba(0, 0, 0, 0.98), 0 0 20px rgba(255, 255, 255, 0.06)'
                     }
                 }
             }
@@ -31,63 +31,35 @@
     </script>
     <style>
         body {
-            background-color: #08090a;
+            background-color: #070809;
             color: #e2e8f0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        /* Fundo de Rack Analógico Estilo SPL */
+        /* Fundo de Rack com opacidade bem reduzida (mais escuro e discreto) */
         .bg-studio-overlay {
             background-image: 
-                linear-gradient(to bottom, rgba(8, 9, 10, 0.82) 0%, rgba(8, 9, 10, 0.68) 50%, rgba(8, 9, 10, 0.96) 100%),
+                linear-gradient(to bottom, rgba(7, 8, 9, 0.94) 0%, rgba(7, 8, 9, 0.88) 50%, rgba(7, 8, 9, 0.98) 100%),
                 url('https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center top;
             background-attachment: fixed;
         }
-        /* Efeito de brilho limpo no logo */
-        .logo-sharp {
-            filter: drop-shadow(0 2px 8px rgba(255, 255, 255, 0.25));
-        }
     </style>
 </head>
 <body class="antialiased selection:bg-white selection:text-black min-h-screen flex flex-col justify-between bg-studio-overlay">
 
-    <!-- Header Minimalista com Glassmorphism -->
-    <header class="border-b border-spl-border bg-spl-bg/85 sticky top-0 z-50 backdrop-blur-md">
+    <!-- Header Minimalista -->
+    <header class="border-b border-spl-border bg-spl-bg/90 sticky top-0 z-50 backdrop-blur-md">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center space-x-3.5 group">
-                <!-- SVG Vetor Ultra Nítido do Logo Waveform FRJ -->
-                <svg class="w-12 h-12 logo-sharp transition-transform duration-300 group-hover:scale-105" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <!-- Gradiente Metálico com Alto Contraste -->
-                        <linearGradient id="chrome-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="#ffffff"/>
-                            <stop offset="35%" stop-color="#e2e8f0"/>
-                            <stop offset="60%" stop-color="#94a3b8"/>
-                            <stop offset="100%" stop-color="#cbd5e1"/>
-                        </linearGradient>
-                    </defs>
-                    
-                    <!-- Barras Verticais do Equalizador / Waveform -->
-                    <rect x="6" y="38" width="4.5" height="24" rx="2.25" fill="url(#chrome-grad)"/>
-                    <rect x="14" y="28" width="4.5" height="44" rx="2.25" fill="url(#chrome-grad)"/>
-                    <rect x="22" y="20" width="4.5" height="60" rx="2.25" fill="url(#chrome-grad)"/>
-                    <rect x="30" y="12" width="4.5" height="76" rx="2.25" fill="url(#chrome-grad)"/>
-                    <rect x="38" y="6" width="4.5" height="88" rx="2.25" fill="url(#chrome-grad)"/>
-                    <rect x="46" y="3" width="4.5" height="94" rx="2.25" fill="url(#chrome-grad)"/>
-                    <rect x="54" y="6" width="4.5" height="88" rx="2.25" fill="url(#chrome-grad)"/>
-                    <rect x="62" y="12" width="4.5" height="76" rx="2.25" fill="url(#chrome-grad)"/>
-                    <rect x="70" y="20" width="4.5" height="60" rx="2.25" fill="url(#chrome-grad)"/>
-                    <rect x="78" y="28" width="4.5" height="44" rx="2.25" fill="url(#chrome-grad)"/>
-                    <rect x="86" y="38" width="4.5" height="24" rx="2.25" fill="url(#chrome-grad)"/>
-
-                    <!-- Caixa Central de Contraste para o Texto FRJ -->
-                    <rect x="18" y="35" width="64" height="30" rx="6" fill="#08090a" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
-
-                    <!-- Letras FRJ Negrito em Destaque Máximo -->
-                    <text x="50" y="58" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="20" fill="#ffffff" letter-spacing="2">FRJ</text>
-                </svg>
-                
+                <!-- Imagem do seu Logo Personalizado (Suba como logo.png) -->
+                <div class="h-10 flex items-center">
+                    <img src="logo.png" alt="FRJ Pro Audio" class="h-10 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <!-- Fallback de texto caso o logo.png ainda não tenha sido enviado -->
+                    <div class="hidden items-center space-x-2">
+                        <span class="w-8 h-8 rounded bg-white/10 border border-white/20 flex items-center justify-center font-bold text-white text-sm">F</span>
+                    </div>
+                </div>
                 <span class="text-xl font-bold tracking-widest text-white uppercase">FRJ PRO AUDIO</span>
             </a>
             <div class="text-xs uppercase tracking-widest text-spl-textMuted font-mono hidden sm:block">
@@ -111,14 +83,14 @@
             </div>
         </div>
 
-        <!-- Grid dos 2 Plugins com Glassmorphism e Sombras Profundas -->
+        <!-- Grid dos 2 Plugins -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
             <!-- Card 1: Strip Pro -->
             <div class="bg-spl-card backdrop-blur-xl border border-spl-border rounded-2xl overflow-hidden flex flex-col justify-between shadow-spl-card hover:shadow-spl-card-hover hover:border-spl-borderHover hover:bg-spl-cardHover transition-all duration-300 group">
                 <div class="p-8">
-                    <!-- Contêiner do Print do Plugin com Profundidade -->
-                    <div class="w-full h-72 sm:h-80 bg-black/60 rounded-xl border border-white/5 flex items-center justify-center mb-6 overflow-hidden p-4 shadow-inner">
+                    <!-- Contêiner do Print do Plugin -->
+                    <div class="w-full h-72 sm:h-80 bg-black/70 rounded-xl border border-white/5 flex items-center justify-center mb-6 overflow-hidden p-4 shadow-inner">
                         <img src="strip-pro.png" alt="FRJ Strip Pro" class="w-full h-full object-contain filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-300" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-xs font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-sm text-white font-mono\'>strip-pro.png</span></div>'">
                     </div>
 
@@ -142,8 +114,8 @@
             <!-- Card 2: Energy -->
             <div class="bg-spl-card backdrop-blur-xl border border-spl-border rounded-2xl overflow-hidden flex flex-col justify-between shadow-spl-card hover:shadow-spl-card-hover hover:border-spl-borderHover hover:bg-spl-cardHover transition-all duration-300 group">
                 <div class="p-8">
-                    <!-- Contêiner do Print do Plugin com Profundidade -->
-                    <div class="w-full h-72 sm:h-80 bg-black/60 rounded-xl border border-white/5 flex items-center justify-center mb-6 overflow-hidden p-4 shadow-inner">
+                    <!-- Contêiner do Print do Plugin -->
+                    <div class="w-full h-72 sm:h-80 bg-black/70 rounded-xl border border-white/5 flex items-center justify-center mb-6 overflow-hidden p-4 shadow-inner">
                         <img src="energy.png" alt="FRJ Energy" class="w-full h-full object-contain filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-300" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-xs font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-sm text-white font-mono\'>energy.png</span></div>'">
                     </div>
 
@@ -166,8 +138,8 @@
 
         </div>
 
-        <!-- Especificações de Rodapé com Fundo Translúcido -->
-        <div class="mt-16 p-6 rounded-xl bg-spl-card/50 backdrop-blur-md border border-spl-border grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-spl-textMuted font-mono">
+        <!-- Rodapé de Especificações -->
+        <div class="mt-16 p-6 rounded-xl bg-spl-card/60 backdrop-blur-md border border-spl-border grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-spl-textMuted font-mono">
             <div>
                 <span class="text-white font-semibold block mb-1 uppercase tracking-wider">SISTEMA</span>
                 Windows 10 / 11 (64-bit)<br>macOS (Intel / Apple Silicon)
@@ -184,7 +156,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-spl-border py-8 text-center text-xs text-spl-textMuted font-mono bg-spl-bg/90 backdrop-blur-md">
+    <footer class="border-t border-spl-border py-8 text-center text-xs text-spl-textMuted font-mono bg-spl-bg/95 backdrop-blur-md">
         © 2026 FRJ PRO AUDIO. TODOS OS DIREITOS RESERVADOS.
     </footer>
 
