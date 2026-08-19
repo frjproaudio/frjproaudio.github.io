@@ -35,7 +35,7 @@
             color: #e2e8f0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        /* Fundo de estúdio analógico com transparência sutil */
+        /* Fundo de estúdio sutil */
         .bg-studio-overlay {
             background-image: 
                 linear-gradient(to bottom, rgba(7, 8, 9, 0.94) 0%, rgba(7, 8, 9, 0.88) 50%, rgba(7, 8, 9, 0.98) 100%),
@@ -44,26 +44,29 @@
             background-position: center top;
             background-attachment: fixed;
         }
-        /* Transforma o logo preto/branco em branco puro e transparente para o tema dark */
-        .logo-dark-mode {
-            filter: invert(1) brightness(1.2);
+        /* Destaque máximo para o logo: Branco puro, alto contraste e nitidez */
+        .logo-ultra-bright {
+            filter: invert(1) brightness(2.5) contrast(300%) drop-shadow(0 0 10px rgba(255, 255, 255, 0.35));
             mix-blend-mode: screen;
         }
     </style>
 </head>
 <body class="antialiased selection:bg-white selection:text-black min-h-screen flex flex-col justify-between bg-studio-overlay">
 
-    <!-- Header Minimalista com o Logo Ajustado -->
-    <header class="border-b border-spl-border bg-spl-bg/90 sticky top-0 z-50 backdrop-blur-md">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+    <!-- Header com Logo Ampliado e em Destaque -->
+    <header class="border-b border-spl-border bg-spl-bg/95 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 h-24 flex items-center justify-between">
             <a href="#" class="flex items-center space-x-4 group">
-                <!-- Imagem do Logo com Inversão de Cor Automática -->
-                <div class="h-14 w-14 flex items-center justify-center overflow-hidden">
-                    <img src="logo.png" alt="FRJ Pro Audio" class="h-full w-full object-contain logo-dark-mode transition-transform duration-300 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <!-- Fallback provisório caso a imagem falhe -->
-                    <div class="hidden items-center justify-center w-10 h-10 rounded bg-white/10 text-white font-bold">F</div>
+                <!-- Imagem do Logo Ampliada (h-20 w-20) com Nitidez Máxima -->
+                <div class="h-20 w-20 flex items-center justify-center p-1">
+                    <img src="logo.png" alt="FRJ Pro Audio" class="h-full w-full object-contain logo-ultra-bright transition-transform duration-300 group-hover:scale-105" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <!-- Fallback provisório caso a imagem demore para carregar -->
+                    <div class="hidden items-center justify-center w-12 h-12 rounded-lg bg-white/10 text-white font-bold text-lg">F</div>
                 </div>
-                <span class="text-xl font-bold tracking-widest text-white uppercase">FRJ PRO AUDIO</span>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-bold tracking-widest text-white uppercase leading-none">FRJ PRO AUDIO</span>
+                    <span class="text-[10px] tracking-[0.25em] text-spl-textMuted uppercase font-mono mt-1">High Performance Audio DSP</span>
+                </div>
             </a>
             <div class="text-xs uppercase tracking-widest text-spl-textMuted font-mono hidden sm:block">
                 VST3 • AU • 64-BIT
@@ -158,9 +161,12 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-spl-border py-8 text-center text-xs text-spl-textMuted font-mono bg-spl-bg/95 backdrop-blur-md">
-        © 2026 FRJ PRO AUDIO. TODOS OS DIREITOS RESERVADOS.
+    <!-- Footer com Logo Integrado -->
+    <footer class="border-t border-spl-border py-8 text-center text-xs text-spl-textMuted font-mono bg-spl-bg/95 backdrop-blur-md flex flex-col items-center gap-3">
+        <div class="h-10 w-10">
+            <img src="logo.png" alt="FRJ Pro Audio" class="h-full w-full object-contain logo-ultra-bright opacity-80">
+        </div>
+        <span>© 2026 FRJ PRO AUDIO. TODOS OS DIREITOS RESERVADOS.</span>
     </footer>
 
 </body>
