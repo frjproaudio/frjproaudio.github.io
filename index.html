@@ -34,7 +34,7 @@
 </head>
 <body class="antialiased selection:bg-white selection:text-black">
 
-    <!-- Header Minimalista Estilo SPL -->
+    <!-- Header Minimalista -->
     <header class="border-b border-spl-border bg-spl-bg/90 sticky top-0 z-50 backdrop-blur-sm">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center space-x-3">
@@ -79,83 +79,58 @@
                 </p>
             </div>
             <div class="text-xs font-mono text-spl-textMuted">
-                3 PLUGINS DISPONÍVEIS
+                2 PLUGINS DISPONÍVEIS
             </div>
         </div>
 
-        <!-- Grid dos 3 Plugins -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Grid com 2 Plugins (Cards e Imagens Maiores) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
             <!-- Card 1: Strip Pro -->
-            <div class="bg-spl-card border border-spl-border rounded-lg overflow-hidden flex flex-col justify-between hover:bg-spl-cardHover hover:border-gray-600 transition-all duration-200">
-                <div class="p-6">
-                    <!-- Imagem da GUI do Strip Pro -->
-                    <div class="w-full h-48 bg-black/70 rounded border border-spl-border/60 flex items-center justify-center mb-6 overflow-hidden">
-                        <img src="strip-pro.png" alt="FRJ Strip Pro" class="w-full h-full object-contain" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-[10px] font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-xs text-white font-mono\'>strip-pro.png</span></div>'">
+            <div class="bg-spl-card border border-spl-border rounded-xl overflow-hidden flex flex-col justify-between hover:bg-spl-cardHover hover:border-gray-600 transition-all duration-200">
+                <div class="p-8">
+                    <!-- Espaço Ampliado da Imagem -->
+                    <div class="w-full h-72 sm:h-80 bg-black/80 rounded-lg border border-spl-border/60 flex items-center justify-center mb-6 overflow-hidden p-4">
+                        <img src="strip-pro.png" alt="FRJ Strip Pro" class="w-full h-full object-contain filter drop-shadow-2xl" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-xs font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-sm text-white font-mono\'>strip-pro.png</span></div>'">
                     </div>
 
                     <div class="mb-3">
                         <span class="text-[11px] font-mono uppercase tracking-wider text-spl-textMuted block mb-1">Channel Strip Completo</span>
-                        <h2 class="text-lg font-semibold text-white tracking-wide">Strip Pro</h2>
+                        <h2 class="text-2xl font-semibold text-white tracking-wide">Strip Pro</h2>
                     </div>
-                    <p class="text-xs text-spl-textMuted leading-relaxed">
+                    <p class="text-sm text-spl-textMuted leading-relaxed">
                         Cadeia de processamento completa com controle de dinâmica, ganho e modelagem tonal rápida para canais individuais e barramentos.
                     </p>
                 </div>
 
-                <div class="p-6 pt-0 mt-4 border-t border-spl-border/40 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-spl-textMuted">VST3 / AU</span>
-                    <a href="#" class="px-4 py-2 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded uppercase tracking-wider transition-colors">
+                <div class="p-8 pt-0 mt-4 border-t border-spl-border/40 flex items-center justify-between">
+                    <span class="text-xs font-mono text-spl-textMuted">VST3 / AU • 64-bit</span>
+                    <a href="#" class="px-6 py-2.5 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded uppercase tracking-wider transition-colors">
                         Download
                     </a>
                 </div>
             </div>
 
             <!-- Card 2: Energy -->
-            <div class="bg-spl-card border border-spl-border rounded-lg overflow-hidden flex flex-col justify-between hover:bg-spl-cardHover hover:border-gray-600 transition-all duration-200">
-                <div class="p-6">
-                    <!-- Imagem da GUI do Energy -->
-                    <div class="w-full h-48 bg-black/70 rounded border border-spl-border/60 flex items-center justify-center mb-6 overflow-hidden">
-                        <img src="energy.png" alt="FRJ Energy" class="w-full h-full object-contain" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-[10px] font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-xs text-white font-mono\'>energy.png</span></div>'">
+            <div class="bg-spl-card border border-spl-border rounded-xl overflow-hidden flex flex-col justify-between hover:bg-spl-cardHover hover:border-gray-600 transition-all duration-200">
+                <div class="p-8">
+                    <!-- Espaço Ampliado da Imagem -->
+                    <div class="w-full h-72 sm:h-80 bg-black/80 rounded-lg border border-spl-border/60 flex items-center justify-center mb-6 overflow-hidden p-4">
+                        <img src="energy.png" alt="FRJ Energy" class="w-full h-full object-contain filter drop-shadow-2xl" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-xs font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-sm text-white font-mono\'>energy.png</span></div>'">
                     </div>
 
                     <div class="mb-3">
                         <span class="text-[11px] font-mono uppercase tracking-wider text-spl-textMuted block mb-1">Dinâmica & Saturação</span>
-                        <h2 class="text-lg font-semibold text-white tracking-wide">Energy</h2>
+                        <h2 class="text-2xl font-semibold text-white tracking-wide">Energy</h2>
                     </div>
-                    <p class="text-xs text-spl-textMuted leading-relaxed">
+                    <p class="text-sm text-spl-textMuted leading-relaxed">
                         Processador de impacto, presença e excitação harmônica. Traz transientes vivos e densidade para a mixagem sem soar agressivo.
                     </p>
                 </div>
 
-                <div class="p-6 pt-0 mt-4 border-t border-spl-border/40 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-spl-textMuted">VST3 / AU</span>
-                    <a href="#" class="px-4 py-2 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded uppercase tracking-wider transition-colors">
-                        Download
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 3: Pro EQ -->
-            <div class="bg-spl-card border border-spl-border rounded-lg overflow-hidden flex flex-col justify-between hover:bg-spl-cardHover hover:border-gray-600 transition-all duration-200">
-                <div class="p-6">
-                    <!-- Imagem da GUI do Pro EQ -->
-                    <div class="w-full h-48 bg-black/70 rounded border border-spl-border/60 flex items-center justify-center mb-6 overflow-hidden">
-                        <img src="pro-eq.png" alt="FRJ Pro EQ" class="w-full h-full object-contain" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-[10px] font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-xs text-white font-mono\'>pro-eq.png</span></div>'">
-                    </div>
-
-                    <div class="mb-3">
-                        <span class="text-[11px] font-mono uppercase tracking-wider text-spl-textMuted block mb-1">Equalizador Cirúrgico</span>
-                        <h2 class="text-lg font-semibold text-white tracking-wide">Pro EQ</h2>
-                    </div>
-                    <p class="text-xs text-spl-textMuted leading-relaxed">
-                        Equalizador paramétrico de alta precisão de fase com corte de ressonâncias limpo e curvas musicais de correção e brilho.
-                    </p>
-                </div>
-
-                <div class="p-6 pt-0 mt-4 border-t border-spl-border/40 flex items-center justify-between">
-                    <span class="text-[11px] font-mono text-spl-textMuted">VST3 / AU</span>
-                    <a href="#" class="px-4 py-2 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded uppercase tracking-wider transition-colors">
+                <div class="p-8 pt-0 mt-4 border-t border-spl-border/40 flex items-center justify-between">
+                    <span class="text-xs font-mono text-spl-textMuted">VST3 / AU • 64-bit</span>
+                    <a href="#" class="px-6 py-2.5 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded uppercase tracking-wider transition-colors">
                         Download
                     </a>
                 </div>
