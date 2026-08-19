@@ -44,22 +44,21 @@
             background-position: center top;
             background-attachment: fixed;
         }
-        /* Destaque para o logo: contraste e nitidez */
-        .logo-ultra-bright {
-            filter: invert(1) brightness(2.5) contrast(300%) drop-shadow(0 0 12px rgba(255, 255, 255, 0.4));
-            mix-blend-mode: screen;
+        /* Exibição limpa para imagem já branca (sem inversão) */
+        .logo-white-clean {
+            filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.3));
         }
     </style>
 </head>
 <body class="antialiased selection:bg-white selection:text-black min-h-screen flex flex-col justify-between bg-studio-overlay">
 
-    <!-- Header com o logo ok.png -->
+    <!-- Header com o logo branco -->
     <header class="border-b border-spl-border bg-spl-bg/95 sticky top-0 z-50 backdrop-blur-md">
         <div class="max-w-6xl mx-auto px-6 h-32 flex items-center justify-between">
             <a href="#" class="flex items-center space-x-5 group">
                 <!-- Imagem do Logo (logo ok.png) -->
                 <div class="h-28 w-28 flex items-center justify-center p-1">
-                    <img src="logo%20ok.png" alt="FRJ Pro Audio" class="h-full w-full object-contain logo-ultra-bright transition-transform duration-300 group-hover:scale-105" onerror="this.src='logo ok.png';">
+                    <img src="logo%20ok.png" alt="FRJ Pro Audio" class="h-full w-full object-contain logo-white-clean transition-transform duration-300 group-hover:scale-105" onerror="this.src='logo ok.png';">
                 </div>
                 <div class="flex flex-col justify-center">
                     <span class="text-2xl sm:text-3xl font-extrabold tracking-widest text-white uppercase leading-none">FRJ PRO AUDIO</span>
@@ -159,11 +158,11 @@
         </div>
     </main>
 
-    <!-- Footer com Logo Centralizado -->
+    <!-- Footer com Logo Branco Centralizado -->
     <footer class="border-t border-spl-border py-12 text-center text-xs text-spl-textMuted font-mono bg-spl-bg/95 backdrop-blur-md flex flex-col items-center justify-center gap-4">
         <!-- Logo do Rodapé (logo ok.png) -->
         <div class="h-24 w-24 flex items-center justify-center">
-            <img src="logo%20ok.png" alt="FRJ Pro Audio" class="h-full w-full object-contain logo-ultra-bright opacity-90 transition-transform duration-300 hover:scale-105" onerror="this.src='logo ok.png';">
+            <img src="logo%20ok.png" alt="FRJ Pro Audio" class="h-full w-full object-contain logo-white-clean opacity-90 transition-transform duration-300 hover:scale-105" onerror="this.src='logo ok.png';">
         </div>
         <span class="tracking-widest text-gray-400 font-semibold uppercase">FRJ PRO AUDIO</span>
         <span class="text-[11px] text-gray-500">© 2026 FRJ PRO AUDIO. TODOS OS DIREITOS RESERVADOS.</span>
