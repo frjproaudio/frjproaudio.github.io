@@ -102,7 +102,7 @@
             <div>
                 <h1 class="text-3xl sm:text-4xl font-light tracking-tight text-white mb-2">Plugins & Licenças</h1>
                 <p class="text-sm text-spl-textMuted max-w-xl">
-                    Processamento DSP cirúrgico para mixagem e masterização com chaves de registro dedicadas.
+                    Processamento DSP cirúrgico para mixagem e masterização. Adquira sua licença vitalícia com suporte e atualizações incluídas.
                 </p>
             </div>
             <div class="text-xs font-mono text-spl-textMuted uppercase tracking-wider">
@@ -123,7 +123,7 @@
                             <h2 class="text-2xl font-semibold text-white tracking-wide">Strip Pro</h2>
                         </div>
                         <div class="text-right">
-                            <span class="text-lg font-bold text-white font-mono">R$ 149,00</span>
+                            <span class="text-xl font-bold text-white font-mono">$49 <span class="text-xs text-gray-400 font-normal">USD</span></span>
                             <span class="text-[10px] text-gray-400 block font-mono">Licença Vitalícia</span>
                         </div>
                     </div>
@@ -133,11 +133,9 @@
                 </div>
                 <div class="p-8 pt-0 mt-2 border-t border-white/5 flex items-center justify-between gap-3">
                     <span class="text-xs font-mono text-spl-textMuted">VST3 / AU • 64-bit</span>
-                    <div class="flex items-center gap-2">
-                        <button type="button" onclick="startCheckout('Strip Pro', 149.00)" class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-bold font-mono rounded-lg uppercase tracking-wider transition-all shadow cursor-pointer">
-                            Adquirir Licença
-                        </button>
-                    </div>
+                    <button type="button" onclick="startCheckout('Strip Pro', 49.00)" class="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-bold font-mono rounded-lg uppercase tracking-wider transition-all shadow cursor-pointer">
+                        Comprar Licença — $49 USD
+                    </button>
                 </div>
             </div>
 
@@ -153,7 +151,7 @@
                             <h2 class="text-2xl font-semibold text-white tracking-wide">Energy</h2>
                         </div>
                         <div class="text-right">
-                            <span class="text-lg font-bold text-white font-mono">R$ 119,00</span>
+                            <span class="text-xl font-bold text-white font-mono">$49 <span class="text-xs text-gray-400 font-normal">USD</span></span>
                             <span class="text-[10px] text-gray-400 block font-mono">Licença Vitalícia</span>
                         </div>
                     </div>
@@ -163,11 +161,9 @@
                 </div>
                 <div class="p-8 pt-0 mt-2 border-t border-white/5 flex items-center justify-between gap-3">
                     <span class="text-xs font-mono text-spl-textMuted">VST3 / AU • 64-bit</span>
-                    <div class="flex items-center gap-2">
-                        <button type="button" onclick="startCheckout('Energy', 119.00)" class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-bold font-mono rounded-lg uppercase tracking-wider transition-all shadow cursor-pointer">
-                            Adquirir Licença
-                        </button>
-                    </div>
+                    <button type="button" onclick="startCheckout('Energy', 49.00)" class="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-bold font-mono rounded-lg uppercase tracking-wider transition-all shadow cursor-pointer">
+                        Comprar Licença — $49 USD
+                    </button>
                 </div>
             </div>
         </div>
@@ -231,29 +227,29 @@
         </div>
     </div>
 
-    <!-- MODAL 2: Área do Membro (Histórico de Pedidos, Licenças e Downloads) -->
+    <!-- MODAL 2: Área do Membro (Histórico, Licenças e Download no Botão Esquerdo) -->
     <div id="member-modal" style="display: none;" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md items-center justify-center p-4">
         <div class="bg-[#0f1114] border border-spl-border w-full max-w-4xl rounded-2xl p-6 sm:p-8 shadow-2xl relative max-h-[90vh] flex flex-col">
             <div class="flex justify-between items-center pb-5 border-b border-spl-border">
                 <div>
                     <span class="text-[11px] font-mono uppercase tracking-widest text-emerald-400 font-bold block mb-1">Portal do Cliente</span>
-                    <h2 class="text-2xl font-light text-white tracking-wide">Minha Conta & Licenças</h2>
+                    <h2 class="text-2xl font-light text-white tracking-wide">Meus Produtos & Licenças</h2>
                 </div>
                 <button type="button" onclick="closeMemberModal()" class="text-gray-400 hover:text-white text-3xl font-mono leading-none cursor-pointer">&times;</button>
             </div>
 
             <div class="py-4 font-mono text-xs text-gray-400 flex flex-wrap justify-between items-center gap-2 border-b border-white/5">
-                <div>Logado como: <span id="member-email-display" class="text-white font-semibold"></span></div>
-                <div class="text-[11px] text-gray-500">Status da Conta: <span class="text-emerald-400">Ativa & Verificada</span></div>
+                <div>Conta: <span id="member-email-display" class="text-white font-semibold"></span></div>
+                <div class="text-[11px] text-gray-500">Status: <span class="text-emerald-400">Ativo</span></div>
             </div>
 
             <!-- Lista de Produtos e Licenças -->
             <div class="overflow-y-auto flex-1 my-4 pr-1 space-y-4" id="member-orders-container">
-                <div class="text-center py-12 text-sm text-gray-500 font-mono">Carregando seus produtos...</div>
+                <div class="text-center py-12 text-sm text-gray-500 font-mono">Buscando seus produtos...</div>
             </div>
 
             <div class="pt-4 border-t border-spl-border flex justify-between items-center font-mono text-xs text-gray-500">
-                <span>Dúvidas ou ativação: frjproaudio@proton.me</span>
+                <span>Suporte técnico: frjproaudio@proton.me</span>
                 <button type="button" onclick="closeMemberModal()" class="px-5 py-2 border border-spl-border hover:border-white text-white rounded-lg transition-all cursor-pointer">Fechar</button>
             </div>
         </div>
@@ -269,7 +265,7 @@
                 <h3 id="checkout-prod-title" class="text-xl font-semibold text-white">Adquirir Produto</h3>
                 <div class="flex justify-between items-center mt-2 font-mono text-sm">
                     <span class="text-gray-400">Total a pagar:</span>
-                    <span id="checkout-prod-price" class="text-emerald-400 font-bold text-lg">R$ 0,00</span>
+                    <span id="checkout-prod-price" class="text-emerald-400 font-bold text-lg">$49 USD</span>
                 </div>
             </div>
 
@@ -334,9 +330,8 @@
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54bm9sZWVoZGNnZmN4aXlvb3ljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcxODAzNjMsImV4cCI6MjEwMjc1NjM2M30.vDiFyWUPcGEFqovdW2pEu3amIiJ9IXDslCtK_lKldc0';
         
         let currentAuthMode = 'login';
-        let checkoutItem = { name: '', price: 0 };
+        let checkoutItem = { name: '', price: 49.00 };
 
-        // Helper para cabeçalhos Supabase autenticados
         function getHeaders() {
             const token = localStorage.getItem('frj_auth_token') || SUPABASE_KEY;
             return {
@@ -410,7 +405,6 @@
                         localStorage.setItem('frj_user_id', data.user.id);
                         localStorage.setItem('frj_user_email', data.user.email);
                     } else {
-                        // Login direto
                         const loginRes = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
                             method: 'POST',
                             headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json' },
@@ -487,9 +481,9 @@
 
             checkoutItem = { name: productName, price: price };
             document.getElementById('checkout-prod-title').innerText = productName + ' - DSP 64-bit';
-            document.getElementById('checkout-prod-price').innerText = 'R$ ' + price.toFixed(2).replace('.', ',');
+            document.getElementById('checkout-prod-price').innerText = '$' + price.toFixed(2) + ' USD';
             
-            // Gera QR Code simulado para o PIX
+            // Simulação de PIX
             const randomHash = Math.random().toString(36).substring(2, 10).toUpperCase();
             const pixCode = `00020126580014BR.GOV.BCB.PIX0136frjproaudio@proton.me520400005303986540${price.toFixed(2)}5802BR5913FRJ AUDIOPRO6009SAO PAULO62070503***6304${randomHash}`;
             document.getElementById('pix-copia-cola').value = pixCode;
@@ -581,11 +575,27 @@
                 }
 
                 closeCheckoutModal();
-                alert(`Pagamento confirmado com sucesso!\n\nOrdem de Compra: ${orderNum}\nProduto: ${checkoutItem.name}\nChave de Registro gerada: ${serial}\n\nSua licença já está disponível na Área do Membro!`);
+                alert(`Pagamento confirmado com sucesso!\n\nOrdem de Compra: ${orderNum}\nProduto: ${checkoutItem.name}\nChave de Registro gerada: ${serial}\n\nO instalador já está liberado na sua Área do Membro!`);
                 openMemberArea();
             } catch (err) {
                 alert('Erro ao salvar pedido: ' + err.message);
             }
+        }
+
+        // Função de download direto pelo botão esquerdo
+        function downloadPluginInstaller(pluginName) {
+            // Se você tiver um arquivo instalador no repositório (ex: 'StripPro-Setup.exe'), basta apontar para ele:
+            const filename = pluginName.toLowerCase().replace(/\s+/g, '-') + '-installer.zip';
+            
+            // Cria um link temporário e simula o clique com o botão esquerdo para download nativo do navegador
+            const link = document.createElement('a');
+            link.href = filename;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            alert(`Download do instalador para "${pluginName}" iniciado com sucesso.`);
         }
 
         // ====== ÁREA DO MEMBRO ======
@@ -610,7 +620,7 @@
                         <div class="text-center py-12 bg-black/40 border border-spl-border rounded-xl p-8">
                             <span class="text-3xl block mb-2">🎛️</span>
                             <h4 class="text-white font-mono text-sm font-semibold mb-1">Nenhum plugin adquirido ainda</h4>
-                            <p class="text-gray-400 text-xs font-mono mb-4">Adquira uma licença para receber seu serial de registro e instaladores.</p>
+                            <p class="text-gray-400 text-xs font-mono mb-4">Adquira uma licença por $49 USD para liberar seu instalador e chave de registro.</p>
                             <button onclick="closeMemberModal()" class="px-5 py-2 bg-white text-black font-mono text-xs font-bold rounded-lg cursor-pointer">Ver Catálogo de Plugins</button>
                         </div>
                     `;
@@ -627,25 +637,27 @@
                         <div class="bg-black/70 border border-spl-border rounded-xl p-5 hover:border-white/20 transition-all shadow">
                             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/5 pb-3 mb-3">
                                 <div>
-                                    <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Ordem de Pedido: ${ord.numero_pedido}</span>
-                                    <h3 class="text-lg font-bold text-white">${ord.produto_nome} <span class="text-xs font-normal text-gray-400 font-mono">(VST3 / AU)</span></h3>
+                                    <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Ordem: ${ord.numero_pedido}</span>
+                                    <h3 class="text-lg font-bold text-white">${ord.produto_nome} <span class="text-xs font-normal text-gray-400 font-mono">(VST3 / AU 64-bit)</span></h3>
                                 </div>
                                 <div class="text-left sm:text-right font-mono text-xs">
-                                    <span class="text-white font-semibold">R$ ${parseFloat(ord.valor).toFixed(2).replace('.', ',')}</span>
+                                    <span class="text-white font-semibold">$${parseFloat(ord.valor).toFixed(2)} USD</span>
                                     <span class="text-[10px] text-gray-400 block">${dataFormatada} • ${ord.metodo_pagamento}</span>
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 items-center bg-zinc-950/80 p-3 rounded-lg border border-spl-border">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-zinc-950/80 p-4 rounded-lg border border-spl-border">
                                 <div>
-                                    <label class="text-[10px] font-mono uppercase text-gray-400 block mb-0.5">Chave de Registro do Plugin (Serial):</label>
-                                    <div class="font-mono text-xs text-emerald-400 font-bold bg-black/60 px-3 py-1.5 rounded border border-white/10 select-all tracking-wider">
+                                    <label class="text-[10px] font-mono uppercase text-gray-400 block mb-1">Chave de Registro (Serial):</label>
+                                    <div class="font-mono text-xs text-emerald-400 font-bold bg-black/60 px-3 py-2 rounded border border-white/10 select-all tracking-wider">
                                         ${ord.chave_registro}
                                     </div>
                                 </div>
-                                <div class="flex sm:justify-end gap-2 pt-2 md:pt-0">
-                                    <button type="button" onclick="alert('Iniciando download do instalador Windows/Mac para ${ord.produto_nome}')" class="px-4 py-2 bg-white hover:bg-gray-200 text-black text-xs font-mono font-bold rounded flex items-center gap-1 cursor-pointer">
-                                        ⬇ Download Instalador
+                                <div class="flex sm:justify-end gap-2">
+                                    <!-- Botão de Download com clique esquerdo padrão -->
+                                    <button type="button" onclick="downloadPluginInstaller('${ord.produto_nome}')" class="w-full sm:w-auto px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-mono font-bold rounded-lg flex items-center justify-center gap-2 shadow cursor-pointer transition-all active:scale-95">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                        <span>Download do Produto</span>
                                     </button>
                                 </div>
                             </div>
@@ -655,7 +667,7 @@
 
                 container.innerHTML = html;
             } catch (err) {
-                container.innerHTML = `<div class="text-red-400 font-mono text-xs text-center py-6">Erro ao carregar pedidos: ${err.message}</div>`;
+                container.innerHTML = `<div class="text-red-400 font-mono text-xs text-center py-6">Erro ao carregar produtos: ${err.message}</div>`;
             }
         }
 
