@@ -57,7 +57,7 @@
 </head>
 <body class="antialiased selection:bg-white selection:text-black min-h-screen flex flex-col justify-between bg-studio-overlay">
 
-    <!-- Header com Logo, Subtítulo DSP e Botões de Conta -->
+    <!-- Header -->
     <header class="border-b border-spl-border bg-spl-bg/95 sticky top-0 z-40 backdrop-blur-md">
         <div class="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between min-h-[135px]">
             <a href="#" class="flex items-center space-x-5 group">
@@ -223,10 +223,10 @@
         </div>
     </div>
 
-    <!-- Script de Autenticação Supabase Configurado com a Chave Nova -->
+    <!-- Script de Autenticação Supabase Definitivo -->
     <script>
         const SUPABASE_URL = 'https://nxnoleehdcgfcxiyooyc.supabase.co';
-        const SUPABASE_KEY = 'sb_publishable__-G-U5Ch8pUVlvBPMPZtnw_Xbn5LCbNND';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54bm9sZWVoZGNnZmN4aXlvb3ljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcxODAzNjMsImV4cCI6MjEwMjc1NjM2M30.vDiFyWUPcGEFqovdW2pEu3amIiJ9IXDslCtK_lKldc0';
         let currentMode = 'login';
         let resetAccessToken = null;
 
@@ -321,7 +321,11 @@
                 if (currentMode === 'signup') {
                     const res = await fetch(SUPABASE_URL + '/auth/v1/signup', {
                         method: 'POST',
-                        headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
+                        headers: { 
+                            'apikey': SUPABASE_KEY, 
+                            'Authorization': 'Bearer ' + SUPABASE_KEY,
+                            'Content-Type': 'application/json' 
+                        },
                         body: JSON.stringify({ email, password })
                     });
                     const data = await res.json();
@@ -331,7 +335,11 @@
                 else if (currentMode === 'login') {
                     const res = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
                         method: 'POST',
-                        headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
+                        headers: { 
+                            'apikey': SUPABASE_KEY, 
+                            'Authorization': 'Bearer ' + SUPABASE_KEY,
+                            'Content-Type': 'application/json' 
+                        },
                         body: JSON.stringify({ email, password })
                     });
                     const data = await res.json();
@@ -344,7 +352,11 @@
                 else if (currentMode === 'forgot') {
                     const res = await fetch(SUPABASE_URL + '/auth/v1/recover', {
                         method: 'POST',
-                        headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
+                        headers: { 
+                            'apikey': SUPABASE_KEY, 
+                            'Authorization': 'Bearer ' + SUPABASE_KEY,
+                            'Content-Type': 'application/json' 
+                        },
                         body: JSON.stringify({ email })
                     });
                     const data = await res.json();
