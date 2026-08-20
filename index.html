@@ -223,7 +223,7 @@
         </div>
     </div>
 
-    <!-- Script de Autenticação Supabase Definitivo -->
+    <!-- Script Supabase Atualizado -->
     <script>
         const SUPABASE_URL = 'https://nxnoleehdcgfcxiyooyc.supabase.co';
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54bm9sZWVoZGNnZmN4aXlvb3ljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcxODAzNjMsImV4cCI6MjEwMjc1NjM2M30.vDiFyWUPcGEFqovdW2pEu3amIiJ9IXDslCtK_lKldc0';
@@ -276,7 +276,7 @@
                 tSignup.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold cursor-pointer';
                 tLogin.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-transparent text-gray-500 hover:text-gray-300 cursor-pointer';
                 forgotBtn.style.display = 'none';
-                btn.innerText = 'Criar Conta & Receber Confirmação';
+                btn.innerText = 'Criar Minha Conta';
             } else if (mode === 'forgot') {
                 tabsContainer.style.display = 'none';
                 resetHeader.style.display = 'block';
@@ -330,7 +330,30 @@
                     });
                     const data = await res.json();
                     if (!res.ok) throw new Error(data.msg || data.error_description || data.message || 'Erro no cadastro.');
-                    showAlert('Conta criada com sucesso! Enviamos um link de confirmação para o seu e-mail.', false);
+                    
+                    // Se o Supabase já retornou a sessão na hora
+                    if (data.access_token) {
+                        localStorage.setItem('frj_auth_token', data.access_token);
+                        localStorage.setItem('frj_user_email', data.user ? data.user.email : email);
+                    } else {
+                        // Faz o login automático imediatamente
+                        const loginRes = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
+                            method: 'POST',
+                            headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email, password })
+                        });
+                        const loginData = await loginRes.json();
+                        if (loginRes.ok && loginData.access_token) {
+                            localStorage.setItem('frj_auth_token', loginData.access_token);
+                            localStorage.setItem('frj_user_email', loginData.user ? loginData.user.email : email);
+                        }
+                    }
+
+                    showAlert('Conta criada com sucesso! Entrando...', false);
+                    setTimeout(() => {
+                        closeAuthModal();
+                        updateInterface();
+                    }, 1000);
                 } 
                 else if (currentMode === 'login') {
                     const res = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
@@ -361,7 +384,7 @@
                     });
                     const data = await res.json();
                     if (!res.ok) throw new Error(data.msg || data.error_description || data.message || 'Erro ao enviar e-mail.');
-                    showAlert('Link de recuperação enviado! Verifique sua caixa de entrada e spam.', false);
+                    showAlert('Link de recuperação enviado! Verifique sua caixa de entrada.', false);
                 }
                 else if (currentMode === 'update_password') {
                     const token = resetAccessToken || localStorage.getItem('frj_auth_token');
@@ -384,7 +407,7 @@
             } finally {
                 btn.disabled = false;
                 if (currentMode === 'login') btn.innerText = 'Entrar';
-                else if (currentMode === 'signup') btn.innerText = 'Criar Conta & Receber Confirmação';
+                else if (currentMode === 'signup') btn.innerText = 'Criar Minha Conta';
                 else if (currentMode === 'forgot') btn.innerText = 'Enviar Link de Redefinição';
                 else if (currentMode === 'update_password') btn.innerText = 'Salvar Nova Senha';
             }
