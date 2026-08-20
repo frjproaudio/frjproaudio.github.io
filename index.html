@@ -102,7 +102,7 @@
             <div>
                 <h1 class="text-3xl sm:text-4xl font-light tracking-tight text-white mb-2">Plugins & Licenças</h1>
                 <p class="text-sm text-spl-textMuted max-w-xl">
-                    Processamento DSP cirúrgico para mixagem e masterização. Adquira sua licença vitalícia com suporte e atualizações incluídas.
+                    Processamento DSP cirúrgico. Cada licença adquirida dá direito à ativação em até <strong>2 computadores simultâneos</strong>.
                 </p>
             </div>
             <div class="text-xs font-mono text-spl-textMuted uppercase tracking-wider">
@@ -124,7 +124,7 @@
                         </div>
                         <div class="text-right">
                             <span class="text-xl font-bold text-white font-mono">$49 <span class="text-xs text-gray-400 font-normal">USD</span></span>
-                            <span class="text-[10px] text-gray-400 block font-mono">Licença Vitalícia</span>
+                            <span class="text-[10px] text-emerald-400 block font-mono">2 Licenças / PCs</span>
                         </div>
                     </div>
                     <p class="text-sm text-spl-textMuted leading-relaxed">
@@ -152,7 +152,7 @@
                         </div>
                         <div class="text-right">
                             <span class="text-xl font-bold text-white font-mono">$49 <span class="text-xs text-gray-400 font-normal">USD</span></span>
-                            <span class="text-[10px] text-gray-400 block font-mono">Licença Vitalícia</span>
+                            <span class="text-[10px] text-emerald-400 block font-mono">2 Licenças / PCs</span>
                         </div>
                     </div>
                     <p class="text-sm text-spl-textMuted leading-relaxed">
@@ -193,7 +193,7 @@
 
     <!-- ================= MODAIS ================= -->
 
-    <!-- MODAL 1: Autenticação (Login / Cadastro) -->
+    <!-- MODAL 1: Autenticação -->
     <div id="auth-modal" style="display: none;" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm items-center justify-center p-4">
         <div class="bg-[#0f1114] border border-spl-border w-full max-w-md rounded-2xl p-8 shadow-2xl relative">
             <button type="button" onclick="closeAuthModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl font-mono leading-none cursor-pointer">&times;</button>
@@ -227,29 +227,29 @@
         </div>
     </div>
 
-    <!-- MODAL 2: Área do Membro (Histórico, Licenças e Download no Botão Esquerdo) -->
+    <!-- MODAL 2: Área do Membro (Gerenciamento de 2 Máquinas / Licenças) -->
     <div id="member-modal" style="display: none;" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md items-center justify-center p-4">
-        <div class="bg-[#0f1114] border border-spl-border w-full max-w-4xl rounded-2xl p-6 sm:p-8 shadow-2xl relative max-h-[90vh] flex flex-col">
+        <div class="bg-[#0f1114] border border-spl-border w-full max-w-4xl rounded-2xl p-6 sm:p-8 shadow-2xl relative max-h-[92vh] flex flex-col">
             <div class="flex justify-between items-center pb-5 border-b border-spl-border">
                 <div>
-                    <span class="text-[11px] font-mono uppercase tracking-widest text-emerald-400 font-bold block mb-1">Portal do Cliente</span>
-                    <h2 class="text-2xl font-light text-white tracking-wide">Meus Produtos & Licenças</h2>
+                    <span class="text-[11px] font-mono uppercase tracking-widest text-emerald-400 font-bold block mb-1">Central de Licenciamento & Ativações</span>
+                    <h2 class="text-2xl font-light text-white tracking-wide">Meus Plugins & Máquinas Registradas</h2>
                 </div>
                 <button type="button" onclick="closeMemberModal()" class="text-gray-400 hover:text-white text-3xl font-mono leading-none cursor-pointer">&times;</button>
             </div>
 
-            <div class="py-4 font-mono text-xs text-gray-400 flex flex-wrap justify-between items-center gap-2 border-b border-white/5">
+            <div class="py-3 font-mono text-xs text-gray-400 flex flex-wrap justify-between items-center gap-2 border-b border-white/5">
                 <div>Conta: <span id="member-email-display" class="text-white font-semibold"></span></div>
-                <div class="text-[11px] text-gray-500">Status: <span class="text-emerald-400">Ativo</span></div>
+                <div class="text-[11px] text-gray-400">Slots por serial: <span class="text-emerald-400 font-semibold">2 Computadores Simultâneos</span></div>
             </div>
 
-            <!-- Lista de Produtos e Licenças -->
-            <div class="overflow-y-auto flex-1 my-4 pr-1 space-y-4" id="member-orders-container">
-                <div class="text-center py-12 text-sm text-gray-500 font-mono">Buscando seus produtos...</div>
+            <!-- Lista de Produtos, Licenças e Slots -->
+            <div class="overflow-y-auto flex-1 my-4 pr-1 space-y-6" id="member-orders-container">
+                <div class="text-center py-12 text-sm text-gray-500 font-mono">Buscando seus produtos e ativações...</div>
             </div>
 
             <div class="pt-4 border-t border-spl-border flex justify-between items-center font-mono text-xs text-gray-500">
-                <span>Suporte técnico: frjproaudio@proton.me</span>
+                <span>Suporte: frjproaudio@proton.me</span>
                 <button type="button" onclick="closeMemberModal()" class="px-5 py-2 border border-spl-border hover:border-white text-white rounded-lg transition-all cursor-pointer">Fechar</button>
             </div>
         </div>
@@ -281,7 +281,7 @@
 
             <!-- Área PIX -->
             <div id="area-pix" class="bg-black/60 border border-spl-border rounded-xl p-5 text-center space-y-4">
-                <p class="text-xs font-mono text-gray-300">Escaneie o QR Code abaixo pelo app do seu banco para liberação imediata:</p>
+                <p class="text-xs font-mono text-gray-300">Escaneie o QR Code abaixo para liberação imediata:</p>
                 <div class="bg-white p-3 rounded-lg w-44 h-44 mx-auto flex items-center justify-center shadow-lg">
                     <img id="pix-qr-img" src="" alt="QR Code PIX" class="w-full h-full object-contain">
                 </div>
@@ -318,19 +318,35 @@
                     </div>
                 </div>
                 <button type="submit" class="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-black font-mono font-bold text-xs uppercase tracking-wider rounded-lg transition-all shadow mt-3 cursor-pointer">
-                    Pagar e Gerar Licença
+                    Pagar e Gerar Licença (2 Máquinas)
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- Script Geral & Integração Supabase -->
+    <!-- Script Geral & Sistema de 2 Máquinas -->
     <script>
         const SUPABASE_URL = 'https://nxnoleehdcgfcxiyooyc.supabase.co';
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54bm9sZWVoZGNnZmN4aXlvb3ljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcxODAzNjMsImV4cCI6MjEwMjc1NjM2M30.vDiFyWUPcGEFqovdW2pEu3amIiJ9IXDslCtK_lKldc0';
         
         let currentAuthMode = 'login';
         let checkoutItem = { name: '', price: 49.00 };
+
+        // Gera ou recupera o identificador único (HWID) da máquina atual
+        function getLocalMachineInfo() {
+            let machineId = localStorage.getItem('frj_local_hwid');
+            if (!machineId) {
+                machineId = 'HWID-' + Math.random().toString(36).substring(2, 10).toUpperCase() + '-' + Date.now().toString(36).toUpperCase();
+                localStorage.setItem('frj_local_hwid', machineId);
+            }
+            
+            // Detecta o sistema operacional
+            let osName = 'Windows PC';
+            if (navigator.userAgent.indexOf('Mac') !== -1) osName = 'macOS Apple';
+            if (navigator.userAgent.indexOf('Linux') !== -1) osName = 'Linux PC';
+
+            return { id: machineId, name: `${osName} (${navigator.platform || 'Workstation'})` };
+        }
 
         function getHeaders() {
             const token = localStorage.getItem('frj_auth_token') || SUPABASE_KEY;
@@ -470,7 +486,7 @@
             }
         }
 
-        // ====== CHECKOUT & PAGAMENTO ======
+        // ====== CHECKOUT & COMPRA ======
         function startCheckout(productName, price) {
             const token = localStorage.getItem('frj_auth_token');
             if (!token) {
@@ -480,10 +496,9 @@
             }
 
             checkoutItem = { name: productName, price: price };
-            document.getElementById('checkout-prod-title').innerText = productName + ' - DSP 64-bit';
+            document.getElementById('checkout-prod-title').innerText = productName + ' (2 Licenças / PCs)';
             document.getElementById('checkout-prod-price').innerText = '$' + price.toFixed(2) + ' USD';
             
-            // Simulação de PIX
             const randomHash = Math.random().toString(36).substring(2, 10).toUpperCase();
             const pixCode = `00020126580014BR.GOV.BCB.PIX0136frjproaudio@proton.me520400005303986540${price.toFixed(2)}5802BR5913FRJ AUDIOPRO6009SAO PAULO62070503***6304${randomHash}`;
             document.getElementById('pix-copia-cola').value = pixCode;
@@ -575,7 +590,7 @@
                 }
 
                 closeCheckoutModal();
-                alert(`Pagamento confirmado com sucesso!\n\nOrdem de Compra: ${orderNum}\nProduto: ${checkoutItem.name}\nChave de Registro gerada: ${serial}\n\nO instalador já está liberado na sua Área do Membro!`);
+                alert(`Pedido aprovado!\n\nOrdem: ${orderNum}\nSerial: ${serial}\n\nVocê tem direito a 2 ativações de máquinas. Acesse a Área do Membro para ativar.`);
                 openMemberArea();
             } catch (err) {
                 alert('Erro ao salvar pedido: ' + err.message);
@@ -584,18 +599,72 @@
 
         // Função de download direto pelo botão esquerdo
         function downloadPluginInstaller(pluginName) {
-            // Se você tiver um arquivo instalador no repositório (ex: 'StripPro-Setup.exe'), basta apontar para ele:
             const filename = pluginName.toLowerCase().replace(/\s+/g, '-') + '-installer.zip';
-            
-            // Cria um link temporário e simula o clique com o botão esquerdo para download nativo do navegador
             const link = document.createElement('a');
             link.href = filename;
             link.download = filename;
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
+            alert(`Download do instalador para "${pluginName}" iniciado.`);
+        }
 
-            alert(`Download do instalador para "${pluginName}" iniciado com sucesso.`);
+        // ====== GESTÃO DE MÁQUINAS (2 SLOTS POR SERIAL) ======
+        async function activateCurrentMachine(pedidoId, pluginName) {
+            const userId = localStorage.getItem('frj_user_id');
+            const machine = getLocalMachineInfo();
+
+            const customName = prompt(`Informe um nome para identificar este computador:\n(Ex: PC Studio Principal, Notebook Mix)`, machine.name);
+            if (!customName) return;
+
+            try {
+                const res = await fetch(SUPABASE_URL + '/rest/v1/ativacoes_maquinas', {
+                    method: 'POST',
+                    headers: {
+                        ...getHeaders(),
+                        'Prefer': 'return=representation'
+                    },
+                    body: JSON.stringify({
+                        pedido_id: pedidoId,
+                        user_id: userId,
+                        machine_id: machine.id,
+                        machine_name: customName
+                    })
+                });
+
+                if (!res.ok) {
+                    const err = await res.json();
+                    if (err.message && err.message.includes('duplicate')) {
+                        throw new Error('Este computador já está ativado nesta licença.');
+                    }
+                    throw new Error(err.message || 'Não foi possível ativar esta máquina.');
+                }
+
+                alert(`Máquina "${customName}" ativada com sucesso para ${pluginName}!`);
+                openMemberArea();
+            } catch (err) {
+                alert(err.message);
+            }
+        }
+
+        async function deactivateMachine(ativacaoId, machineName) {
+            if (!confirm(`Deseja realmente desativar a licença no computador "${machineName}"?\n\nIsso liberará 1 slot de licença para ser usado em outro computador.`)) {
+                return;
+            }
+
+            try {
+                const res = await fetch(`${SUPABASE_URL}/rest/v1/ativacoes_maquinas?id=eq.${ativacaoId}`, {
+                    method: 'DELETE',
+                    headers: getHeaders()
+                });
+
+                if (!res.ok) throw new Error('Erro ao desativar máquina.');
+
+                alert(`Máquina "${machineName}" desativada com sucesso. O slot de licença foi liberado!`);
+                openMemberArea();
+            } catch (err) {
+                alert(err.message);
+            }
         }
 
         // ====== ÁREA DO MEMBRO ======
@@ -607,58 +676,124 @@
             document.getElementById('member-email-display').innerText = email;
             document.getElementById('member-modal').style.display = 'flex';
             const container = document.getElementById('member-orders-container');
-            container.innerHTML = '<div class="text-center py-10 font-mono text-gray-400">Buscando seus produtos e licenças...</div>';
+            container.innerHTML = '<div class="text-center py-10 font-mono text-gray-400">Buscando seus produtos e ativações...</div>';
 
             try {
-                const res = await fetch(`${SUPABASE_URL}/rest/v1/pedidos?user_id=eq.${userId}&order=data_aquisicao.desc`, {
+                // 1. Busca os pedidos do usuário
+                const resPedidos = await fetch(`${SUPABASE_URL}/rest/v1/pedidos?user_id=eq.${userId}&order=data_aquisicao.desc`, {
                     headers: getHeaders()
                 });
-                const orders = await res.json();
+                const orders = await resPedidos.json();
+
+                // 2. Busca todas as ativações de máquinas do usuário
+                const resAtivacoes = await fetch(`${SUPABASE_URL}/rest/v1/ativacoes_maquinas?user_id=eq.${userId}`, {
+                    headers: getHeaders()
+                });
+                const ativacoes = await resAtivacoes.json();
 
                 if (!orders || orders.length === 0) {
                     container.innerHTML = `
                         <div class="text-center py-12 bg-black/40 border border-spl-border rounded-xl p-8">
                             <span class="text-3xl block mb-2">🎛️</span>
                             <h4 class="text-white font-mono text-sm font-semibold mb-1">Nenhum plugin adquirido ainda</h4>
-                            <p class="text-gray-400 text-xs font-mono mb-4">Adquira uma licença por $49 USD para liberar seu instalador e chave de registro.</p>
+                            <p class="text-gray-400 text-xs font-mono mb-4">Adquira uma licença por $49 USD para liberar 2 ativações de máquinas por plugin.</p>
                             <button onclick="closeMemberModal()" class="px-5 py-2 bg-white text-black font-mono text-xs font-bold rounded-lg cursor-pointer">Ver Catálogo de Plugins</button>
                         </div>
                     `;
                     return;
                 }
 
+                const localMachine = getLocalMachineInfo();
                 let html = '';
+
                 orders.forEach(ord => {
                     const dataFormatada = new Date(ord.data_aquisicao).toLocaleDateString('pt-BR', {
-                        day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit'
+                        day: '2-digit', month: '2-digit', year: 'numeric'
                     });
 
-                    html += `
-                        <div class="bg-black/70 border border-spl-border rounded-xl p-5 hover:border-white/20 transition-all shadow">
-                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/5 pb-3 mb-3">
-                                <div>
-                                    <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Ordem: ${ord.numero_pedido}</span>
-                                    <h3 class="text-lg font-bold text-white">${ord.produto_nome} <span class="text-xs font-normal text-gray-400 font-mono">(VST3 / AU 64-bit)</span></h3>
+                    // Filtra as máquinas ativadas para este pedido específico
+                    const maquinasDoPedido = ativacoes ? ativacoes.filter(a => a.pedido_id === ord.id) : [];
+                    const slotsOcupados = maquinasDoPedido.length;
+                    const slotsDisponiveis = 2 - slotsOcupados;
+                    const jaAtivouEstaMaquina = maquinasDoPedido.some(a => a.machine_id === localMachine.id);
+
+                    // Renderiza os slots de máquinas
+                    let slotsHtml = '';
+                    for (let i = 0; i < 2; i++) {
+                        const ativ = maquinasDoPedido[i];
+                        if (ativ) {
+                            const isCurrent = ativ.machine_id === localMachine.id;
+                            slotsHtml += `
+                                <div class="p-3 bg-zinc-900/90 border border-emerald-500/40 rounded-lg flex items-center justify-between">
+                                    <div class="flex items-center gap-2.5">
+                                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                        <div>
+                                            <div class="text-xs font-mono text-white font-semibold flex items-center gap-1.5">
+                                                <span>Slot ${i+1}: ${ativ.machine_name}</span>
+                                                ${isCurrent ? '<span class="text-[9px] bg-emerald-950 text-emerald-300 border border-emerald-700 px-1.5 py-0.2 rounded uppercase font-mono">Este PC</span>' : ''}
+                                            </div>
+                                            <div class="text-[10px] font-mono text-gray-500">ID: ${ativ.machine_id.substring(0, 16)}... • Ativado em ${new Date(ativ.data_ativacao).toLocaleDateString('pt-BR')}</div>
+                                        </div>
+                                    </div>
+                                    <button type="button" onclick="deactivateMachine('${ativ.id}', '${ativ.machine_name}')" class="px-2.5 py-1.5 bg-red-950/60 hover:bg-red-900 border border-red-700 text-red-300 text-[11px] font-mono rounded cursor-pointer transition-all">
+                                        Desativar PC
+                                    </button>
                                 </div>
-                                <div class="text-left sm:text-right font-mono text-xs">
-                                    <span class="text-white font-semibold">$${parseFloat(ord.valor).toFixed(2)} USD</span>
-                                    <span class="text-[10px] text-gray-400 block">${dataFormatada} • ${ord.metodo_pagamento}</span>
+                            `;
+                        } else {
+                            slotsHtml += `
+                                <div class="p-3 bg-black/40 border border-dashed border-zinc-700 rounded-lg flex items-center justify-between text-gray-500 font-mono text-xs">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-gray-600"></span>
+                                        <span>Slot ${i+1}: Licença Disponível</span>
+                                    </div>
+                                    ${!jaAtivouEstaMaquina ? `
+                                        <button type="button" onclick="activateCurrentMachine('${ord.id}', '${ord.produto_nome}')" class="px-3 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-[11px] rounded transition-all cursor-pointer shadow">
+                                            + Ativar Neste PC
+                                        </button>
+                                    ` : '<span class="text-[10px] text-gray-600">Aguardando 2º PC</span>'}
+                                </div>
+                            `;
+                        }
+                    }
+
+                    html += `
+                        <div class="bg-black/70 border border-spl-border rounded-xl p-5 hover:border-white/20 transition-all shadow-lg">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/5 pb-3 mb-4">
+                                <div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Ordem: ${ord.numero_pedido}</span>
+                                        <span class="text-[10px] font-mono bg-zinc-800 text-gray-300 px-2 py-0.5 rounded border border-white/5">${slotsOcupados}/2 PCs Ativos</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-white mt-0.5">${ord.produto_nome} <span class="text-xs font-normal text-gray-400 font-mono">(VST3 / AU 64-bit)</span></h3>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="text-left sm:text-right font-mono text-xs hidden sm:block">
+                                        <span class="text-white font-semibold">$${parseFloat(ord.valor).toFixed(2)} USD</span>
+                                        <span class="text-[10px] text-gray-400 block">${dataFormatada}</span>
+                                    </div>
+                                    <button type="button" onclick="downloadPluginInstaller('${ord.produto_nome}')" class="px-4 py-2 bg-white hover:bg-gray-200 text-black text-xs font-mono font-bold rounded-lg flex items-center gap-1.5 shadow cursor-pointer transition-all active:scale-95">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                        <span>Download Instalador</span>
+                                    </button>
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-zinc-950/80 p-4 rounded-lg border border-spl-border">
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-spl-border space-y-4">
                                 <div>
-                                    <label class="text-[10px] font-mono uppercase text-gray-400 block mb-1">Chave de Registro (Serial):</label>
-                                    <div class="font-mono text-xs text-emerald-400 font-bold bg-black/60 px-3 py-2 rounded border border-white/10 select-all tracking-wider">
-                                        ${ord.chave_registro}
+                                    <label class="text-[10px] font-mono uppercase text-gray-400 block mb-1">Chave Master de Registro (Serial):</label>
+                                    <div class="font-mono text-xs text-emerald-400 font-bold bg-black/60 px-3 py-2 rounded border border-white/10 select-all tracking-wider flex justify-between items-center">
+                                        <span>${ord.chave_registro}</span>
+                                        <span class="text-[10px] text-gray-500 font-normal">Válido para 2 PCs</span>
                                     </div>
                                 </div>
-                                <div class="flex sm:justify-end gap-2">
-                                    <!-- Botão de Download com clique esquerdo padrão -->
-                                    <button type="button" onclick="downloadPluginInstaller('${ord.produto_nome}')" class="w-full sm:w-auto px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-mono font-bold rounded-lg flex items-center justify-center gap-2 shadow cursor-pointer transition-all active:scale-95">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                                        <span>Download do Produto</span>
-                                    </button>
+
+                                <!-- Slots de Ativação -->
+                                <div>
+                                    <label class="text-[10px] font-mono uppercase text-gray-400 block mb-2">Máquinas Ativadas (${slotsOcupados}/2 Slots):</label>
+                                    <div class="space-y-2">
+                                        ${slotsHtml}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -667,7 +802,7 @@
 
                 container.innerHTML = html;
             } catch (err) {
-                container.innerHTML = `<div class="text-red-400 font-mono text-xs text-center py-6">Erro ao carregar produtos: ${err.message}</div>`;
+                container.innerHTML = `<div class="text-red-400 font-mono text-xs text-center py-6">Erro ao carregar ativações: ${err.message}</div>`;
             }
         }
 
