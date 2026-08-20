@@ -67,11 +67,12 @@
                 </div>
             </a>
             
-            <div class="flex items-center space-x-6">
-                <div class="text-xs uppercase tracking-widest text-spl-textMuted font-mono hidden md:block">
+            <div class="flex items-center space-x-4">
+                <div class="text-xs uppercase tracking-widest text-spl-textMuted font-mono hidden lg:block">
                     VST3 • AU • 64-BIT
                 </div>
 
+                <!-- Deslogado -->
                 <div id="auth-logged-out" class="flex items-center space-x-3">
                     <button type="button" onclick="openAuthModal('login')" class="px-5 py-2.5 border border-spl-border hover:border-white/50 text-xs font-mono uppercase tracking-wider text-gray-200 rounded transition-all cursor-pointer">
                         Entrar
@@ -81,9 +82,13 @@
                     </button>
                 </div>
 
-                <div id="auth-logged-in" style="display: none;" class="items-center space-x-4 font-mono text-xs">
-                    <span id="user-email-display" class="text-gray-300"></span>
-                    <button type="button" onclick="logoutUser()" class="text-red-400 hover:text-red-300 uppercase tracking-wider underline cursor-pointer">
+                <!-- Logado -->
+                <div id="auth-logged-in" style="display: none;" class="items-center space-x-3 font-mono text-xs">
+                    <button type="button" onclick="openMemberArea()" class="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 border border-spl-border text-white rounded-lg flex items-center gap-2 transition-all cursor-pointer shadow">
+                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        <span>Área do Membro</span>
+                    </button>
+                    <button type="button" onclick="logoutUser()" class="text-red-400 hover:text-red-300 uppercase tracking-wider underline cursor-pointer text-[11px] ml-2">
                         Sair
                     </button>
                 </div>
@@ -95,9 +100,9 @@
     <main class="max-w-6xl mx-auto px-6 pt-16 pb-24 w-full">
         <div class="border-b border-spl-border pb-8 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-                <h1 class="text-3xl sm:text-4xl font-light tracking-tight text-white mb-2">Plugins</h1>
+                <h1 class="text-3xl sm:text-4xl font-light tracking-tight text-white mb-2">Plugins & Licenças</h1>
                 <p class="text-sm text-spl-textMuted max-w-xl">
-                    Processamento DSP cirúrgico para mixagem e masterização.
+                    Processamento DSP cirúrgico para mixagem e masterização com chaves de registro dedicadas.
                 </p>
             </div>
             <div class="text-xs font-mono text-spl-textMuted uppercase tracking-wider">
@@ -112,19 +117,27 @@
                     <div class="w-full h-72 sm:h-80 bg-black/70 rounded-xl border border-white/5 flex items-center justify-center mb-6 overflow-hidden p-4 shadow-inner">
                         <img src="strip-pro.png" alt="Strip Pro" class="w-full h-full object-contain filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-300" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-xs font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-sm text-white font-mono\'>strip-pro.png</span></div>'">
                     </div>
-                    <div class="mb-3">
-                        <span class="text-[11px] font-mono uppercase tracking-wider text-spl-textMuted block mb-1">Channel Strip Completo</span>
-                        <h2 class="text-2xl font-semibold text-white tracking-wide">Strip Pro</h2>
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <span class="text-[11px] font-mono uppercase tracking-wider text-spl-textMuted block mb-1">Channel Strip Completo</span>
+                            <h2 class="text-2xl font-semibold text-white tracking-wide">Strip Pro</h2>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-lg font-bold text-white font-mono">R$ 149,00</span>
+                            <span class="text-[10px] text-gray-400 block font-mono">Licença Vitalícia</span>
+                        </div>
                     </div>
                     <p class="text-sm text-spl-textMuted leading-relaxed">
                         Cadeia de processamento completa com controle de dinâmica, ganho e modelagem tonal rápida para canais individuais e barramentos.
                     </p>
                 </div>
-                <div class="p-8 pt-0 mt-2 border-t border-white/5 flex items-center justify-between">
+                <div class="p-8 pt-0 mt-2 border-t border-white/5 flex items-center justify-between gap-3">
                     <span class="text-xs font-mono text-spl-textMuted">VST3 / AU • 64-bit</span>
-                    <button type="button" onclick="triggerDownload('Strip Pro')" class="px-6 py-2.5 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded-lg uppercase tracking-wider transition-all shadow-md active:scale-95 cursor-pointer">
-                        Download
-                    </button>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="startCheckout('Strip Pro', 149.00)" class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-bold font-mono rounded-lg uppercase tracking-wider transition-all shadow cursor-pointer">
+                            Adquirir Licença
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -134,19 +147,27 @@
                     <div class="w-full h-72 sm:h-80 bg-black/70 rounded-xl border border-white/5 flex items-center justify-center mb-6 overflow-hidden p-4 shadow-inner">
                         <img src="energy.png" alt="Energy" class="w-full h-full object-contain filter drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-300" onerror="this.parentElement.innerHTML='<div class=\'text-center p-4\'><span class=\'text-xs font-mono text-spl-textMuted uppercase tracking-wider block mb-1\'>Suba o arquivo</span><span class=\'text-sm text-white font-mono\'>energy.png</span></div>'">
                     </div>
-                    <div class="mb-3">
-                        <span class="text-[11px] font-mono uppercase tracking-wider text-spl-textMuted block mb-1">Dinâmica & Saturação</span>
-                        <h2 class="text-2xl font-semibold text-white tracking-wide">Energy</h2>
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <span class="text-[11px] font-mono uppercase tracking-wider text-spl-textMuted block mb-1">Dinâmica & Saturação</span>
+                            <h2 class="text-2xl font-semibold text-white tracking-wide">Energy</h2>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-lg font-bold text-white font-mono">R$ 119,00</span>
+                            <span class="text-[10px] text-gray-400 block font-mono">Licença Vitalícia</span>
+                        </div>
                     </div>
                     <p class="text-sm text-spl-textMuted leading-relaxed">
                         Processador de impacto, presença e excitação harmônica. Traz transientes vivos e densidade para a mixagem sem soar agressivo.
                     </p>
                 </div>
-                <div class="p-8 pt-0 mt-2 border-t border-white/5 flex items-center justify-between">
+                <div class="p-8 pt-0 mt-2 border-t border-white/5 flex items-center justify-between gap-3">
                     <span class="text-xs font-mono text-spl-textMuted">VST3 / AU • 64-bit</span>
-                    <button type="button" onclick="triggerDownload('Energy')" class="px-6 py-2.5 bg-white hover:bg-gray-200 text-black text-xs font-semibold rounded-lg uppercase tracking-wider transition-all shadow-md active:scale-95 cursor-pointer">
-                        Download
-                    </button>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="startCheckout('Energy', 119.00)" class="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-bold font-mono rounded-lg uppercase tracking-wider transition-all shadow cursor-pointer">
+                            Adquirir Licença
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -171,10 +192,12 @@
     <!-- Footer -->
     <footer class="border-t border-spl-border py-12 text-center text-xs text-spl-textMuted font-mono bg-spl-bg/95 backdrop-blur-md flex flex-col items-center justify-center gap-4">
         <img src="logo%20ok.png" alt="Logo" class="logo-clean-footer object-contain opacity-90 transition-transform duration-300 hover:scale-105" onerror="this.src='logo ok.png';">
-        <span class="text-[11px] text-gray-500">© 2026. TODOS OS DIREITOS RESERVADOS.</span>
+        <span class="text-[11px] text-gray-500">© 2026 FRJ AUDIO PRO. TODOS OS DIREITOS RESERVADOS.</span>
     </footer>
 
-    <!-- Modal de Autenticação -->
+    <!-- ================= MODAIS ================= -->
+
+    <!-- MODAL 1: Autenticação (Login / Cadastro) -->
     <div id="auth-modal" style="display: none;" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm items-center justify-center p-4">
         <div class="bg-[#0f1114] border border-spl-border w-full max-w-md rounded-2xl p-8 shadow-2xl relative">
             <button type="button" onclick="closeAuthModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl font-mono leading-none cursor-pointer">&times;</button>
@@ -188,53 +211,146 @@
                 </button>
             </div>
 
-            <div id="reset-header" style="display: none;" class="border-b border-spl-border pb-3 mb-6">
-                <h3 id="reset-title" class="text-sm font-mono uppercase text-white font-bold tracking-wider">Recuperar Senha</h3>
-            </div>
-
             <div id="auth-alert" style="display: none;" class="mb-4 p-3 rounded text-xs font-mono leading-relaxed"></div>
 
             <form id="auth-form" onsubmit="submitAuthForm(event)" class="space-y-4">
-                <div id="field-email">
+                <div>
                     <label class="block text-xs font-mono uppercase text-gray-400 mb-1">E-mail</label>
-                    <input type="email" id="input-email" class="w-full bg-black/60 border border-spl-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-white transition-colors" placeholder="seuemail@exemplo.com">
+                    <input type="email" id="input-email" required class="w-full bg-black/60 border border-spl-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-white transition-colors" placeholder="seuemail@exemplo.com">
                 </div>
                 
-                <div id="field-password">
-                    <div class="flex justify-between items-center mb-1">
-                        <label id="label-password" class="block text-xs font-mono uppercase text-gray-400">Senha</label>
-                        <button type="button" id="btn-forgot-password" onclick="switchTab('forgot')" class="text-[11px] font-mono text-gray-400 hover:text-white underline cursor-pointer">
-                            Esqueci a senha
-                        </button>
-                    </div>
-                    <input type="password" id="input-password" minlength="6" class="w-full bg-black/60 border border-spl-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-white transition-colors" placeholder="••••••••">
+                <div>
+                    <label class="block text-xs font-mono uppercase text-gray-400 mb-1">Senha</label>
+                    <input type="password" id="input-password" required minlength="6" class="w-full bg-black/60 border border-spl-border rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-white transition-colors" placeholder="••••••••">
                 </div>
 
                 <button type="submit" id="btn-submit" class="w-full py-3 bg-white hover:bg-gray-200 text-black font-semibold text-xs uppercase tracking-wider rounded-lg transition-all mt-2 cursor-pointer">
                     Entrar
                 </button>
-
-                <div id="btn-back-login-box" style="display: none;" class="text-center pt-2">
-                    <button type="button" onclick="switchTab('login')" class="text-xs font-mono text-gray-400 hover:text-white uppercase tracking-wider underline cursor-pointer">
-                        ← Voltar para o Login
-                    </button>
-                </div>
             </form>
         </div>
     </div>
 
-    <!-- Script Supabase Atualizado -->
+    <!-- MODAL 2: Área do Membro (Histórico de Pedidos, Licenças e Downloads) -->
+    <div id="member-modal" style="display: none;" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md items-center justify-center p-4">
+        <div class="bg-[#0f1114] border border-spl-border w-full max-w-4xl rounded-2xl p-6 sm:p-8 shadow-2xl relative max-h-[90vh] flex flex-col">
+            <div class="flex justify-between items-center pb-5 border-b border-spl-border">
+                <div>
+                    <span class="text-[11px] font-mono uppercase tracking-widest text-emerald-400 font-bold block mb-1">Portal do Cliente</span>
+                    <h2 class="text-2xl font-light text-white tracking-wide">Minha Conta & Licenças</h2>
+                </div>
+                <button type="button" onclick="closeMemberModal()" class="text-gray-400 hover:text-white text-3xl font-mono leading-none cursor-pointer">&times;</button>
+            </div>
+
+            <div class="py-4 font-mono text-xs text-gray-400 flex flex-wrap justify-between items-center gap-2 border-b border-white/5">
+                <div>Logado como: <span id="member-email-display" class="text-white font-semibold"></span></div>
+                <div class="text-[11px] text-gray-500">Status da Conta: <span class="text-emerald-400">Ativa & Verificada</span></div>
+            </div>
+
+            <!-- Lista de Produtos e Licenças -->
+            <div class="overflow-y-auto flex-1 my-4 pr-1 space-y-4" id="member-orders-container">
+                <div class="text-center py-12 text-sm text-gray-500 font-mono">Carregando seus produtos...</div>
+            </div>
+
+            <div class="pt-4 border-t border-spl-border flex justify-between items-center font-mono text-xs text-gray-500">
+                <span>Dúvidas ou ativação: frjproaudio@proton.me</span>
+                <button type="button" onclick="closeMemberModal()" class="px-5 py-2 border border-spl-border hover:border-white text-white rounded-lg transition-all cursor-pointer">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 3: Checkout de Pagamento (PIX e Cartão de Crédito) -->
+    <div id="checkout-modal" style="display: none;" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md items-center justify-center p-4">
+        <div class="bg-[#0f1114] border border-spl-border w-full max-w-lg rounded-2xl p-6 sm:p-8 shadow-2xl relative max-h-[95vh] overflow-y-auto">
+            <button type="button" onclick="closeCheckoutModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl font-mono leading-none cursor-pointer">&times;</button>
+            
+            <div class="border-b border-spl-border pb-4 mb-6">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-emerald-400 block mb-1">Finalização de Pedido</span>
+                <h3 id="checkout-prod-title" class="text-xl font-semibold text-white">Adquirir Produto</h3>
+                <div class="flex justify-between items-center mt-2 font-mono text-sm">
+                    <span class="text-gray-400">Total a pagar:</span>
+                    <span id="checkout-prod-price" class="text-emerald-400 font-bold text-lg">R$ 0,00</span>
+                </div>
+            </div>
+
+            <!-- Seletor de Pagamento -->
+            <div class="grid grid-cols-2 gap-3 mb-6">
+                <button type="button" id="pay-btn-pix" onclick="selectPaymentMethod('PIX')" class="p-3 border-2 border-emerald-500 bg-emerald-950/20 text-white rounded-xl font-mono text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> PIX Instantâneo
+                </button>
+                <button type="button" id="pay-btn-card" onclick="selectPaymentMethod('CARD')" class="p-3 border border-spl-border bg-black/40 text-gray-400 hover:text-white rounded-xl font-mono text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer">
+                    <span class="w-2.5 h-2.5 rounded-full bg-transparent border border-gray-500"></span> Cartão de Crédito
+                </button>
+            </div>
+
+            <!-- Área PIX -->
+            <div id="area-pix" class="bg-black/60 border border-spl-border rounded-xl p-5 text-center space-y-4">
+                <p class="text-xs font-mono text-gray-300">Escaneie o QR Code abaixo pelo app do seu banco para liberação imediata:</p>
+                <div class="bg-white p-3 rounded-lg w-44 h-44 mx-auto flex items-center justify-center shadow-lg">
+                    <img id="pix-qr-img" src="" alt="QR Code PIX" class="w-full h-full object-contain">
+                </div>
+                <div class="text-left space-y-1">
+                    <label class="text-[10px] font-mono uppercase text-gray-400">PIX Copia e Cola:</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="pix-copia-cola" readonly class="w-full bg-zinc-900 border border-spl-border rounded px-3 py-2 text-xs font-mono text-gray-300 select-all" value="">
+                        <button type="button" onclick="copyPixCode()" class="px-3 py-2 bg-white hover:bg-gray-200 text-black font-mono text-xs font-semibold rounded cursor-pointer">Copiar</button>
+                    </div>
+                </div>
+                <button type="button" onclick="confirmOrder('PIX')" class="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-black font-mono font-bold text-xs uppercase tracking-wider rounded-lg transition-all shadow cursor-pointer">
+                    Já Realizei o Pagamento PIX
+                </button>
+            </div>
+
+            <!-- Área Cartão de Crédito -->
+            <form id="area-card" onsubmit="confirmOrderCard(event)" style="display: none;" class="space-y-4 bg-black/60 border border-spl-border rounded-xl p-5">
+                <div>
+                    <label class="block text-[11px] font-mono uppercase text-gray-400 mb-1">Número do Cartão</label>
+                    <input type="text" required placeholder="0000 0000 0000 0000" maxlength="19" class="w-full bg-zinc-900 border border-spl-border rounded-lg px-3 py-2 text-sm text-white font-mono">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-mono uppercase text-gray-400 mb-1">Nome no Cartão</label>
+                    <input type="text" required placeholder="NOME COMO IMPRESSO" class="w-full bg-zinc-900 border border-spl-border rounded-lg px-3 py-2 text-sm text-white font-mono uppercase">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[11px] font-mono uppercase text-gray-400 mb-1">Validade</label>
+                        <input type="text" required placeholder="MM/AA" maxlength="5" class="w-full bg-zinc-900 border border-spl-border rounded-lg px-3 py-2 text-sm text-white font-mono">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-mono uppercase text-gray-400 mb-1">CVV</label>
+                        <input type="text" required placeholder="123" maxlength="4" class="w-full bg-zinc-900 border border-spl-border rounded-lg px-3 py-2 text-sm text-white font-mono">
+                    </div>
+                </div>
+                <button type="submit" class="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-black font-mono font-bold text-xs uppercase tracking-wider rounded-lg transition-all shadow mt-3 cursor-pointer">
+                    Pagar e Gerar Licença
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script Geral & Integração Supabase -->
     <script>
         const SUPABASE_URL = 'https://nxnoleehdcgfcxiyooyc.supabase.co';
         const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im54bm9sZWVoZGNnZmN4aXlvb3ljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcxODAzNjMsImV4cCI6MjEwMjc1NjM2M30.vDiFyWUPcGEFqovdW2pEu3amIiJ9IXDslCtK_lKldc0';
-        let currentMode = 'login';
-        let resetAccessToken = null;
+        
+        let currentAuthMode = 'login';
+        let checkoutItem = { name: '', price: 0 };
 
+        // Helper para cabeçalhos Supabase autenticados
+        function getHeaders() {
+            const token = localStorage.getItem('frj_auth_token') || SUPABASE_KEY;
+            return {
+                'apikey': SUPABASE_KEY,
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json'
+            };
+        }
+
+        // ====== AUTH ======
         function openAuthModal(mode) {
-            currentMode = mode || 'login';
-            switchTab(currentMode);
-            const modal = document.getElementById('auth-modal');
-            modal.style.display = 'flex';
+            currentAuthMode = mode;
+            switchTab(mode);
+            document.getElementById('auth-modal').style.display = 'flex';
             hideAlert();
         }
 
@@ -243,57 +359,19 @@
         }
 
         function switchTab(mode) {
-            currentMode = mode;
+            currentAuthMode = mode;
             const tLogin = document.getElementById('tab-login');
             const tSignup = document.getElementById('tab-signup');
-            const tabsContainer = document.getElementById('auth-tabs');
-            const resetHeader = document.getElementById('reset-header');
-            const resetTitle = document.getElementById('reset-title');
-            const fieldEmail = document.getElementById('field-email');
-            const fieldPassword = document.getElementById('field-password');
-            const inputEmail = document.getElementById('input-email');
-            const inputPassword = document.getElementById('input-password');
-            const forgotBtn = document.getElementById('btn-forgot-password');
-            const backBtnBox = document.getElementById('btn-back-login-box');
             const btn = document.getElementById('btn-submit');
-            const labelPassword = document.getElementById('label-password');
-
-            tabsContainer.style.display = 'flex';
-            resetHeader.style.display = 'none';
-            fieldEmail.style.display = 'block';
-            fieldPassword.style.display = 'block';
-            forgotBtn.style.display = 'inline';
-            backBtnBox.style.display = 'none';
-            inputEmail.required = true;
-            inputPassword.required = true;
-            labelPassword.innerText = 'Senha';
 
             if (mode === 'login') {
                 tLogin.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold cursor-pointer';
                 tSignup.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-transparent text-gray-500 hover:text-gray-300 cursor-pointer';
                 btn.innerText = 'Entrar';
-            } else if (mode === 'signup') {
+            } else {
                 tSignup.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold cursor-pointer';
                 tLogin.className = 'pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-transparent text-gray-500 hover:text-gray-300 cursor-pointer';
-                forgotBtn.style.display = 'none';
                 btn.innerText = 'Criar Minha Conta';
-            } else if (mode === 'forgot') {
-                tabsContainer.style.display = 'none';
-                resetHeader.style.display = 'block';
-                resetTitle.innerText = 'Recuperar Senha';
-                fieldPassword.style.display = 'none';
-                inputPassword.required = false;
-                backBtnBox.style.display = 'block';
-                btn.innerText = 'Enviar Link de Redefinição';
-            } else if (mode === 'update_password') {
-                tabsContainer.style.display = 'none';
-                resetHeader.style.display = 'block';
-                resetTitle.innerText = 'Definir Nova Senha';
-                fieldEmail.style.display = 'none';
-                inputEmail.required = false;
-                forgotBtn.style.display = 'none';
-                labelPassword.innerText = 'Nova Senha';
-                btn.innerText = 'Salvar Nova Senha';
             }
             hideAlert();
         }
@@ -315,28 +393,24 @@
             const password = document.getElementById('input-password').value;
             const btn = document.getElementById('btn-submit');
             btn.disabled = true;
-            btn.innerText = 'Aguarde...';
+            btn.innerText = 'Processando...';
 
             try {
-                if (currentMode === 'signup') {
+                if (currentAuthMode === 'signup') {
                     const res = await fetch(SUPABASE_URL + '/auth/v1/signup', {
                         method: 'POST',
-                        headers: { 
-                            'apikey': SUPABASE_KEY, 
-                            'Authorization': 'Bearer ' + SUPABASE_KEY,
-                            'Content-Type': 'application/json' 
-                        },
+                        headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json' },
                         body: JSON.stringify({ email, password })
                     });
                     const data = await res.json();
                     if (!res.ok) throw new Error(data.msg || data.error_description || data.message || 'Erro no cadastro.');
-                    
-                    // Se o Supabase já retornou a sessão na hora
+
                     if (data.access_token) {
                         localStorage.setItem('frj_auth_token', data.access_token);
-                        localStorage.setItem('frj_user_email', data.user ? data.user.email : email);
+                        localStorage.setItem('frj_user_id', data.user.id);
+                        localStorage.setItem('frj_user_email', data.user.email);
                     } else {
-                        // Faz o login automático imediatamente
+                        // Login direto
                         const loginRes = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
                             method: 'POST',
                             headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json' },
@@ -345,7 +419,8 @@
                         const loginData = await loginRes.json();
                         if (loginRes.ok && loginData.access_token) {
                             localStorage.setItem('frj_auth_token', loginData.access_token);
-                            localStorage.setItem('frj_user_email', loginData.user ? loginData.user.email : email);
+                            localStorage.setItem('frj_user_id', loginData.user.id);
+                            localStorage.setItem('frj_user_email', loginData.user.email);
                         }
                     }
 
@@ -354,69 +429,36 @@
                         closeAuthModal();
                         updateInterface();
                     }, 1000);
-                } 
-                else if (currentMode === 'login') {
+                } else {
                     const res = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
                         method: 'POST',
-                        headers: { 
-                            'apikey': SUPABASE_KEY, 
-                            'Authorization': 'Bearer ' + SUPABASE_KEY,
-                            'Content-Type': 'application/json' 
-                        },
+                        headers: { 'apikey': SUPABASE_KEY, 'Authorization': 'Bearer ' + SUPABASE_KEY, 'Content-Type': 'application/json' },
                         body: JSON.stringify({ email, password })
                     });
                     const data = await res.json();
                     if (!res.ok) throw new Error(data.msg || data.error_description || data.message || 'E-mail ou senha incorretos.');
+
                     localStorage.setItem('frj_auth_token', data.access_token);
-                    localStorage.setItem('frj_user_email', data.user ? data.user.email : email);
+                    localStorage.setItem('frj_user_id', data.user.id);
+                    localStorage.setItem('frj_user_email', data.user.email);
                     closeAuthModal();
                     updateInterface();
-                } 
-                else if (currentMode === 'forgot') {
-                    const res = await fetch(SUPABASE_URL + '/auth/v1/recover', {
-                        method: 'POST',
-                        headers: { 
-                            'apikey': SUPABASE_KEY, 
-                            'Authorization': 'Bearer ' + SUPABASE_KEY,
-                            'Content-Type': 'application/json' 
-                        },
-                        body: JSON.stringify({ email })
-                    });
-                    const data = await res.json();
-                    if (!res.ok) throw new Error(data.msg || data.error_description || data.message || 'Erro ao enviar e-mail.');
-                    showAlert('Link de recuperação enviado! Verifique sua caixa de entrada.', false);
-                }
-                else if (currentMode === 'update_password') {
-                    const token = resetAccessToken || localStorage.getItem('frj_auth_token');
-                    const res = await fetch(SUPABASE_URL + '/auth/v1/user', {
-                        method: 'PUT',
-                        headers: { 
-                            'apikey': SUPABASE_KEY, 
-                            'Authorization': 'Bearer ' + token,
-                            'Content-Type': 'application/json' 
-                        },
-                        body: JSON.stringify({ password })
-                    });
-                    const data = await res.json();
-                    if (!res.ok) throw new Error(data.msg || data.error_description || data.message || 'Erro ao atualizar senha.');
-                    showAlert('Senha alterada com sucesso! Você já pode entrar.', false);
-                    setTimeout(() => switchTab('login'), 2000);
                 }
             } catch (err) {
                 showAlert(err.message, true);
             } finally {
                 btn.disabled = false;
-                if (currentMode === 'login') btn.innerText = 'Entrar';
-                else if (currentMode === 'signup') btn.innerText = 'Criar Minha Conta';
-                else if (currentMode === 'forgot') btn.innerText = 'Enviar Link de Redefinição';
-                else if (currentMode === 'update_password') btn.innerText = 'Salvar Nova Senha';
+                if (currentAuthMode === 'login') btn.innerText = 'Entrar';
+                else btn.innerText = 'Criar Minha Conta';
             }
         }
 
         function logoutUser() {
             localStorage.removeItem('frj_auth_token');
+            localStorage.removeItem('frj_user_id');
             localStorage.removeItem('frj_user_email');
             updateInterface();
+            closeMemberModal();
         }
 
         function updateInterface() {
@@ -424,47 +466,210 @@
             const email = localStorage.getItem('frj_user_email');
             const loggedOut = document.getElementById('auth-logged-out');
             const loggedIn = document.getElementById('auth-logged-in');
-            const display = document.getElementById('user-email-display');
 
             if (token && email) {
                 loggedOut.style.display = 'none';
                 loggedIn.style.display = 'flex';
-                display.innerText = email;
             } else {
                 loggedOut.style.display = 'flex';
                 loggedIn.style.display = 'none';
             }
         }
 
-        function triggerDownload(pluginName) {
+        // ====== CHECKOUT & PAGAMENTO ======
+        function startCheckout(productName, price) {
             const token = localStorage.getItem('frj_auth_token');
             if (!token) {
                 openAuthModal('login');
-                showAlert('Crie uma conta gratuita ou faça login para baixar.', true);
+                showAlert('Crie sua conta ou faça login para adquirir o plugin.', true);
+                return;
+            }
+
+            checkoutItem = { name: productName, price: price };
+            document.getElementById('checkout-prod-title').innerText = productName + ' - DSP 64-bit';
+            document.getElementById('checkout-prod-price').innerText = 'R$ ' + price.toFixed(2).replace('.', ',');
+            
+            // Gera QR Code simulado para o PIX
+            const randomHash = Math.random().toString(36).substring(2, 10).toUpperCase();
+            const pixCode = `00020126580014BR.GOV.BCB.PIX0136frjproaudio@proton.me520400005303986540${price.toFixed(2)}5802BR5913FRJ AUDIOPRO6009SAO PAULO62070503***6304${randomHash}`;
+            document.getElementById('pix-copia-cola').value = pixCode;
+            document.getElementById('pix-qr-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(pixCode)}`;
+
+            selectPaymentMethod('PIX');
+            document.getElementById('checkout-modal').style.display = 'flex';
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').style.display = 'none';
+        }
+
+        function selectPaymentMethod(type) {
+            const btnPix = document.getElementById('pay-btn-pix');
+            const btnCard = document.getElementById('pay-btn-card');
+            const areaPix = document.getElementById('area-pix');
+            const areaCard = document.getElementById('area-card');
+
+            if (type === 'PIX') {
+                btnPix.className = 'p-3 border-2 border-emerald-500 bg-emerald-950/20 text-white rounded-xl font-mono text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer';
+                btnCard.className = 'p-3 border border-spl-border bg-black/40 text-gray-400 hover:text-white rounded-xl font-mono text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer';
+                areaPix.style.display = 'block';
+                areaCard.style.display = 'none';
             } else {
-                alert('Usuário autenticado! Iniciando download do instalador: ' + pluginName);
+                btnCard.className = 'p-3 border-2 border-emerald-500 bg-emerald-950/20 text-white rounded-xl font-mono text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer';
+                btnPix.className = 'p-3 border border-spl-border bg-black/40 text-gray-400 hover:text-white rounded-xl font-mono text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer';
+                areaPix.style.display = 'none';
+                areaCard.style.display = 'block';
             }
         }
 
-        function checkPasswordRecoveryLink() {
-            const hash = window.location.hash;
-            if (hash && hash.includes('type=recovery')) {
-                const params = new URLSearchParams(hash.substring(1));
-                resetAccessToken = params.get('access_token');
-                if (resetAccessToken) {
-                    openAuthModal('update_password');
-                    showAlert('Insira sua nova senha abaixo.', false);
+        function copyPixCode() {
+            const copyText = document.getElementById("pix-copia-cola");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            alert("Código PIX Copia e Cola copiado com sucesso!");
+        }
+
+        function generateSerial(pluginName) {
+            const prefix = pluginName.toUpperCase().includes('STRIP') ? 'FRJ-STRIP' : 'FRJ-ENGY';
+            const seg1 = Math.random().toString(36).substring(2, 6).toUpperCase();
+            const seg2 = Math.random().toString(36).substring(2, 6).toUpperCase();
+            const seg3 = Math.random().toString(36).substring(2, 6).toUpperCase();
+            return `${prefix}-${seg1}-${seg2}-${seg3}`;
+        }
+
+        function generateOrderNumber() {
+            const d = new Date();
+            const dateStr = d.getFullYear().toString() + (d.getMonth()+1).toString().padStart(2, '0') + d.getDate().toString().padStart(2, '0');
+            const rand = Math.floor(1000 + Math.random() * 9000);
+            return `ORD-${dateStr}-${rand}`;
+        }
+
+        async function confirmOrderCard(e) {
+            e.preventDefault();
+            await confirmOrder('Cartão de Crédito');
+        }
+
+        async function confirmOrder(paymentMethod) {
+            const userId = localStorage.getItem('frj_user_id');
+            const userEmail = localStorage.getItem('frj_user_email');
+            const orderNum = generateOrderNumber();
+            const serial = generateSerial(checkoutItem.name);
+
+            try {
+                const res = await fetch(SUPABASE_URL + '/rest/v1/pedidos', {
+                    method: 'POST',
+                    headers: {
+                        ...getHeaders(),
+                        'Prefer': 'return=representation'
+                    },
+                    body: JSON.stringify({
+                        user_id: userId,
+                        user_email: userEmail,
+                        numero_pedido: orderNum,
+                        produto_nome: checkoutItem.name,
+                        valor: checkoutItem.price,
+                        metodo_pagamento: paymentMethod,
+                        status: 'Aprovado',
+                        chave_registro: serial
+                    })
+                });
+
+                if (!res.ok) {
+                    const err = await res.json();
+                    throw new Error(err.message || 'Erro ao registrar pedido.');
                 }
+
+                closeCheckoutModal();
+                alert(`Pagamento confirmado com sucesso!\n\nOrdem de Compra: ${orderNum}\nProduto: ${checkoutItem.name}\nChave de Registro gerada: ${serial}\n\nSua licença já está disponível na Área do Membro!`);
+                openMemberArea();
+            } catch (err) {
+                alert('Erro ao salvar pedido: ' + err.message);
             }
+        }
+
+        // ====== ÁREA DO MEMBRO ======
+        async function openMemberArea() {
+            const email = localStorage.getItem('frj_user_email');
+            const userId = localStorage.getItem('frj_user_id');
+            if (!email) return;
+
+            document.getElementById('member-email-display').innerText = email;
+            document.getElementById('member-modal').style.display = 'flex';
+            const container = document.getElementById('member-orders-container');
+            container.innerHTML = '<div class="text-center py-10 font-mono text-gray-400">Buscando seus produtos e licenças...</div>';
+
+            try {
+                const res = await fetch(`${SUPABASE_URL}/rest/v1/pedidos?user_id=eq.${userId}&order=data_aquisicao.desc`, {
+                    headers: getHeaders()
+                });
+                const orders = await res.json();
+
+                if (!orders || orders.length === 0) {
+                    container.innerHTML = `
+                        <div class="text-center py-12 bg-black/40 border border-spl-border rounded-xl p-8">
+                            <span class="text-3xl block mb-2">🎛️</span>
+                            <h4 class="text-white font-mono text-sm font-semibold mb-1">Nenhum plugin adquirido ainda</h4>
+                            <p class="text-gray-400 text-xs font-mono mb-4">Adquira uma licença para receber seu serial de registro e instaladores.</p>
+                            <button onclick="closeMemberModal()" class="px-5 py-2 bg-white text-black font-mono text-xs font-bold rounded-lg cursor-pointer">Ver Catálogo de Plugins</button>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let html = '';
+                orders.forEach(ord => {
+                    const dataFormatada = new Date(ord.data_aquisicao).toLocaleDateString('pt-BR', {
+                        day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit'
+                    });
+
+                    html += `
+                        <div class="bg-black/70 border border-spl-border rounded-xl p-5 hover:border-white/20 transition-all shadow">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/5 pb-3 mb-3">
+                                <div>
+                                    <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">Ordem de Pedido: ${ord.numero_pedido}</span>
+                                    <h3 class="text-lg font-bold text-white">${ord.produto_nome} <span class="text-xs font-normal text-gray-400 font-mono">(VST3 / AU)</span></h3>
+                                </div>
+                                <div class="text-left sm:text-right font-mono text-xs">
+                                    <span class="text-white font-semibold">R$ ${parseFloat(ord.valor).toFixed(2).replace('.', ',')}</span>
+                                    <span class="text-[10px] text-gray-400 block">${dataFormatada} • ${ord.metodo_pagamento}</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 items-center bg-zinc-950/80 p-3 rounded-lg border border-spl-border">
+                                <div>
+                                    <label class="text-[10px] font-mono uppercase text-gray-400 block mb-0.5">Chave de Registro do Plugin (Serial):</label>
+                                    <div class="font-mono text-xs text-emerald-400 font-bold bg-black/60 px-3 py-1.5 rounded border border-white/10 select-all tracking-wider">
+                                        ${ord.chave_registro}
+                                    </div>
+                                </div>
+                                <div class="flex sm:justify-end gap-2 pt-2 md:pt-0">
+                                    <button type="button" onclick="alert('Iniciando download do instalador Windows/Mac para ${ord.produto_nome}')" class="px-4 py-2 bg-white hover:bg-gray-200 text-black text-xs font-mono font-bold rounded flex items-center gap-1 cursor-pointer">
+                                        ⬇ Download Instalador
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = html;
+            } catch (err) {
+                container.innerHTML = `<div class="text-red-400 font-mono text-xs text-center py-6">Erro ao carregar pedidos: ${err.message}</div>`;
+            }
+        }
+
+        function closeMemberModal() {
+            document.getElementById('member-modal').style.display = 'none';
         }
 
         window.addEventListener('click', (e) => {
-            const modal = document.getElementById('auth-modal');
-            if (e.target === modal) closeAuthModal();
+            if (e.target === document.getElementById('auth-modal')) closeAuthModal();
+            if (e.target === document.getElementById('member-modal')) closeMemberModal();
+            if (e.target === document.getElementById('checkout-modal')) closeCheckoutModal();
         });
 
         updateInterface();
-        checkPasswordRecoveryLink();
     </script>
 </body>
 </html>
