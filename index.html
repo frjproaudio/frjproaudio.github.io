@@ -57,7 +57,7 @@
 </head>
 <body class="antialiased selection:bg-white selection:text-black min-h-screen flex flex-col justify-between bg-studio-overlay">
 
-    <!-- Header -->
+    <!-- Header com Logo, Subtítulo DSP e Botões de Conta -->
     <header class="border-b border-spl-border bg-spl-bg/95 sticky top-0 z-40 backdrop-blur-md">
         <div class="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between min-h-[135px]">
             <a href="#" class="flex items-center space-x-5 group">
@@ -174,12 +174,11 @@
         <span class="text-[11px] text-gray-500">© 2026. TODOS OS DIREITOS RESERVADOS.</span>
     </footer>
 
-    <!-- MODAL DE AUTENTICAÇÃO / RESET PASSWORD -->
+    <!-- Modal de Autenticação -->
     <div id="auth-modal" style="display: none;" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm items-center justify-center p-4">
         <div class="bg-[#0f1114] border border-spl-border w-full max-w-md rounded-2xl p-8 shadow-2xl relative">
             <button type="button" onclick="closeAuthModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white text-2xl font-mono leading-none cursor-pointer">&times;</button>
             
-            <!-- Abas (Ocultas durante atualização de senha) -->
             <div id="auth-tabs" class="flex border-b border-spl-border mb-6">
                 <button type="button" id="tab-login" onclick="switchTab('login')" class="pb-3 px-4 font-mono text-xs uppercase tracking-wider border-b-2 border-white text-white font-bold cursor-pointer">
                     Entrar
@@ -189,15 +188,12 @@
                 </button>
             </div>
 
-            <!-- Título Alternativo para Reset -->
             <div id="reset-header" style="display: none;" class="border-b border-spl-border pb-3 mb-6">
                 <h3 id="reset-title" class="text-sm font-mono uppercase text-white font-bold tracking-wider">Recuperar Senha</h3>
             </div>
 
-            <!-- Alerta / Feedback -->
             <div id="auth-alert" style="display: none;" class="mb-4 p-3 rounded text-xs font-mono leading-relaxed"></div>
 
-            <!-- Formulário -->
             <form id="auth-form" onsubmit="submitAuthForm(event)" class="space-y-4">
                 <div id="field-email">
                     <label class="block text-xs font-mono uppercase text-gray-400 mb-1">E-mail</label>
@@ -227,10 +223,10 @@
         </div>
     </div>
 
-    <!-- Script de Autenticação Supabase com Reset Password -->
+    <!-- Script de Autenticação Supabase Configurado -->
     <script>
-        const SUPABASE_URL = 'https://xeraxrhmzuxknjqxnlwz.supabase.co';
-        const SUPABASE_KEY = 'sb_publishable_u8d0bA9UBxw-hHmEsoKM9A_hh5nTYG6';
+        const SUPABASE_URL = 'https://nxnoleehdcgfcxiyooyc.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_L0EyixZd40hYmCR8C1isOA_cRYOut7l';
         let currentMode = 'login';
         let resetAccessToken = null;
 
@@ -415,7 +411,6 @@
             }
         }
 
-        // Detecta retorno de link de recuperação de senha pelo hash da URL
         function checkPasswordRecoveryLink() {
             const hash = window.location.hash;
             if (hash && hash.includes('type=recovery')) {
